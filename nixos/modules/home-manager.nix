@@ -1,18 +1,6 @@
 { config, pkgs, lib, ... }:
 
 {
-  # Import Home Manager module
-  imports = [
-    "${builtins.fetchTarball {
-      url = "https://github.com/nix-community/home-manager/archive/release-24.11.tar.gz";
-      sha256 = "1gaar6r1afma67ly6kr2q9f76mvimzqyy4hp7whdikx5x42d0l6s"; # Replace with actual SHA256
-    }}/nixos"
-  ];
-
-  environment.systemPackages = with pkgs; [
-    home-manager
-  ];
-
   # Ensure Home Manager is enabled
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
