@@ -1,3 +1,5 @@
+```nix
+
 # gnome-configuration.nix
 # A comprehensive GNOME configuration module for NixOS
 # Save this file and import it into your main configuration.nix with:
@@ -149,3 +151,5 @@
   # Set the system state version (adjust based on your NixOS version)
   system.stateVersion = "24.11"; # Example, update as needed
 }
+
+```

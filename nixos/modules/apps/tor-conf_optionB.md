@@ -1,3 +1,5 @@
+```nix
+
 { config, pkgs, ... }:
 {
   services.tor = {
@@ -15,3 +17,6 @@
   '';
   networking.nameservers = [ "127.0.0.1" ];
 }
+
+
+```
