@@ -57,5 +57,6 @@
 		foliate
 		flatpak
 		transmission_4-gtk
+		nautilus
 	];
 }
