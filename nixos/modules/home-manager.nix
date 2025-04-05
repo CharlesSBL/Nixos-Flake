@@ -14,6 +14,29 @@
       settings.experimental-features = [ "nix-command" "flakes" ];
     };
 
+    home = {
+      packages = with pkgs; [
+        firefox
+        libreoffice
+        whitesur-icon-theme
+      ];
+
+      stateVersion = "24.11";
+    };
+
+    # Manually set GTK icon theme via config file
+    xdg.configFile."gtk-3.0/settings.ini".text = ''
+      [Settings]
+      gtk-icon-theme-name=WhiteSur
+    '';
+
+    # Git configuration
+    programs.git = {
+      enable = true;
+      userName = "CharlesSBL";
+      userEmail = "karl.sobolewski@outlook.com";
+    };
+
     # Dconf settings for GNOME
     dconf.settings = {
       "org/gnome/shell" = {
@@ -59,29 +82,6 @@
         picture-uri = "file:///home/sach/.wallpapers/l-w.webp";
         picture-uri-dark = "file:///home/sach/.wallpapers/d-w.webp";
       };
-    };
-
-    home = {
-      packages = with pkgs; [
-        firefox
-        libreoffice
-        whitesur-icon-theme
-      ];
-
-      stateVersion = "24.11";
-    };
-
-    # Manually set GTK icon theme via config file
-    xdg.configFile."gtk-3.0/settings.ini".text = ''
-      [Settings]
-      gtk-icon-theme-name=WhiteSur
-    '';
-
-    # Git configuration
-    programs.git = {
-      enable = true;
-      userName = "CharlesSBL";
-      userEmail = "karl.sobolewski@outlook.com";
     };
   };
 }

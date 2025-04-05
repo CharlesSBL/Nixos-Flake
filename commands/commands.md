@@ -1,8 +1,14 @@
 ```sh
+# This builds the system configuration, which can then be tested or deployed.
+nix build .#nixosConfigurations.mySystem.config.system.build.toplevel
+
 # work with flake
 nix flake check
 nixos-rebuild build --flake .#nixrach
 sudo nixos-rebuild switch --flake .#nixrach
+
+# update
+nix flake update
 
 # clean up the nixos
 nix-collect-garbage

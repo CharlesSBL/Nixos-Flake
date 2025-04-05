@@ -1,57 +1,61 @@
-# PATH: "/etc/nixos/modules/user-packages-other.nix"
 { config, pkgs, ... }:
 
 {
-		users.users.sach.packages = with pkgs; [
-				# Desktop environment
-				waybar
-				hyprpaper
-				networkmanagerapplet
+	users.users.sach.packages = with pkgs; [
+		# Desktop Environment
+		waybar
+		hyprpaper
+		networkmanagerapplet
 
-				# Image tools
-				imagemagick  # For converting jpg to webp:
-																	# $ mogrify -format webp *.jpg
-																	# $ mogrify -quality 75 *.webp
+		# Development
+		dbeaver-bin
+		gitkraken
+		insomnia
+		postgresql
+		gparted
+		gnome-disk-utility
+		baobab
 
-				# System and network tools
-				gitkraken
-				insomnia
-				htop
-				btop
-				tree
-				fastfetch
-				tmux
+		# Containerization
+		podman
+		podman-desktop
+		docker
+		docker-compose
 
-				# Containers and virtualization
-				postgresql
-				podman
-				docker
-				docker-compose
-				gnome-boxes
-				parsec-bin
+		# Virtualization
+		gnome-boxes
 
-				# Productivity and communication
-				discord
-				gfn-electron
-				telegram-desktop
-				thunderbird
-				# gnome-extension-manager
+		# Graphics and Media
+		blender
+		imagemagick
+		vlc
 
-				# Web browsers
-				google-chrome
+		# Communication
+		slack
+		discord
+		telegram-desktop
+		thunderbird
 
-				# Media and documents
-				mediawriter
-				foliate
-				# gnome-tweaks
+		# System Tools
+		cpu-x
+		htop
+		btop
+		tree
+		fastfetch
+		tmux
 
-				# Development tools
-				dbeaver-bin
-
-				# Package management
-				flatpak
-
-				# Downloads
-				transmission_4-gtk
-		];
+		# Other Applications
+		gnome-text-editor
+		resources
+		easyeffects
+		parsec-bin
+		bottles
+		protonplus
+		gfn-electron
+		google-chrome
+		mediawriter
+		foliate
+		flatpak
+		transmission_4-gtk
+	];
 }

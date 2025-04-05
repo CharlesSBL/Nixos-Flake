@@ -23,6 +23,8 @@
 								sysprof.enable = true;
 				};
 
+				services.gnome.core-utilities.enable = false;
+
 				# Environment configuration
 				environment = {
 								gnome.excludePackages = (with pkgs; [
@@ -57,4 +59,7 @@
 								"getty@tty1".enable = false;
 								"autovt@tty1".enable = false;
 				};
+
+				services.gnome.localsearch.enable = false;
+  			services.gnome.tinysparql.enable = false;
 }
