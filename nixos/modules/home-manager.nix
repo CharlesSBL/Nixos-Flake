@@ -1,0 +1,88 @@
+{ config, pkgs, lib, ... }:
+
+{
+  # Import Home Manager module
+  imports = [
+    "${builtins.fetchTarball {
+      url = "https://github.com/nix-community/home-manager/archive/release-24.11.tar.gz";
+      sha256 = "1gaar6r1afma67ly6kr2q9f76mvimzqyy4hp7whdikx5x42d0l6s"; # Replace with actual SHA256
+    }}/nixos"
+  ];
+
+  environment.systemPackages = with pkgs; [
+    home-manager
+  ];
+
+  # Ensure Home Manager is enabled
+  home-manager.useGlobalPkgs = true;
+  home-manager.useUserPackages = true;
+
+  users.users.sach = {
+    isNormalUser = true;
+  };
+
+  home-manager.users.sach = { pkgs, ... }: {
+    nix = {
+      settings.experimental-features = [ "nix-command" "flakes" ];
+    };
+
+    # Dconf settings for GNOME
+    dconf.settings = {
+      "org/gnome/shell" = {
+        disable-user-extensions = false;
+        enabled-extensions = with pkgs.gnomeExtensions; [
+          blur-my-shell.extensionUuid
+          tiling-shell.extensionUuid
+        ];
+      };
+      "org/gnome/desktop/wm/keybindings" = {
+        switch-applications = [ "<Ctrl>Tab" ];
+        close = [ "<Ctrl><Shift>W" ];
+        maximize = [ "<Super>F" ];
+        begin-move = [ "<Super>M" ];
+        unmaximize = [ "<Super>D" ];
+        switch-to-workspace-1 = [ "<Ctrl>1" ];
+        switch-to-workspace-2 = [ "<Ctrl>2" ];
+        switch-to-workspace-3 = [ "<Ctrl>3" ];
+        switch-to-workspace-4 = [ "<Ctrl>4" ];
+        switch-to-workspace-left = [ "<Super><Shift>Left" ];
+        switch-to-workspace-right = [ "<Super><Shift>Right" ];
+        move-to-workspace-1 = [ "<Ctrl><Shift>1" ];
+        move-to-workspace-2 = [ "<Ctrl><Shift>2" ];
+        move-to-workspace-3 = [ "<Ctrl><Shift>3" ];
+        move-to-workspace-4 = [ "<Ctrl><Shift>4" ];
+      };
+      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
+        name = "Launch Ghostty";
+        command = "ghostty";
+        binding = "<Ctrl><Shift>Return";
+      };
+      "org/gnome/desktop/background" = {
+        picture-uri = "file:///home/sach/.wallpapers/l-w.webp";
+        picture-uri-dark = "file:///home/sach/.wallpapers/d-w.webp";
+      };
+    };
+
+    # User packages
+    home.packages = with pkgs; [
+      firefox
+      libreoffice
+      whitesur-icon-theme
+    ];
+
+    # Manually set GTK icon theme via config file
+    xdg.configFile."gtk-3.0/settings.ini".text = ''
+      [Settings]
+      gtk-icon-theme-name=WhiteSur
+    '';
+
+    # Git configuration
+    programs.git = {
+      enable = true;
+      userName = "CharlesSBL";
+      userEmail = "karl.sobolewski@outlook.com";
+    };
+
+    home.stateVersion = "24.11";
+  };
+}
