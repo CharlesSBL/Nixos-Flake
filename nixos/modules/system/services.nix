@@ -1,13 +1,26 @@
 { config, pkgs, ... }:
 
 {
-  services.printing.enable = true;
-  services.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
+  # Printing service
+  services.printing = {
     enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
+  };
+
+  # Audio services configuration
+  services = {
+    pulseaudio.enable = false;
+    pipewire = {
+      enable = true;
+      alsa = {
+        enable = true;
+        support32Bit = true;
+      };
+      pulse.enable = true;
+    };
+  };
+
+  # Security settings
+  security = {
+    rtkit.enable = true;
   };
 }

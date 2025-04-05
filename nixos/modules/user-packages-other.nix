@@ -2,48 +2,56 @@
 { config, pkgs, ... }:
 
 {
-  users.users.sach.packages = with pkgs; [
-    imagemagick 
-	# imagemagick is to convert jpg to webp, 
-	# commands below:
-	#   $ mogrify -format webp *.jpg 
-	#   $ mogrify -quality 75 *.webp
-    waybar
-    hyprpaper
-    networkmanagerapplet
+		users.users.sach.packages = with pkgs; [
+				# Desktop environment
+				waybar
+				hyprpaper
+				networkmanagerapplet
 
-    # System and network tools
-    gitkraken
-    insomnia
-    htop
-    btop
-    tree
-    fastfetch
-    tmux
-    postgresql
-    podman
-    docker
-    docker-compose
-    # Productivity and communication tools
-    discord
-    gfn-electron
-    telegram-desktop
-    thunderbird
-    # gnome-extension-manager
-    # Virtualization and emulation tools
-    gnome-boxes
-    parsec-bin
-    # Web browsers
-    google-chrome
-    # Media and writing tools
-    mediawriter
-    foliate
-    # gnome-tweaks
-    # Database tools
-    dbeaver-bin
-    # Package managers
-    flatpak
-    # Torrent clients
-    transmission_4-gtk
-  ];
+				# Image tools
+				imagemagick  # For converting jpg to webp:
+																	# $ mogrify -format webp *.jpg
+																	# $ mogrify -quality 75 *.webp
+
+				# System and network tools
+				gitkraken
+				insomnia
+				htop
+				btop
+				tree
+				fastfetch
+				tmux
+
+				# Containers and virtualization
+				postgresql
+				podman
+				docker
+				docker-compose
+				gnome-boxes
+				parsec-bin
+
+				# Productivity and communication
+				discord
+				gfn-electron
+				telegram-desktop
+				thunderbird
+				# gnome-extension-manager
+
+				# Web browsers
+				google-chrome
+
+				# Media and documents
+				mediawriter
+				foliate
+				# gnome-tweaks
+
+				# Development tools
+				dbeaver-bin
+
+				# Package management
+				flatpak
+
+				# Downloads
+				transmission_4-gtk
+		];
 }

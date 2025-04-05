@@ -1,6 +1,8 @@
 { config, pkgs, ... }:
 
 {
-  networking.hostName = "nixrach";
-  networking.networkmanager.enable = true;
+  networking = {
+    hostName = "nixrach";
+    networkmanager.enable = true;
+  };
 }

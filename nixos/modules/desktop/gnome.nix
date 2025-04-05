@@ -1,66 +1,60 @@
 { config, pkgs, ... }:
 
 {
-	# Gnome desktop
-	services.xserver = {
-		enable = true;
-		displayManager.gdm = {
-			enable = true;
-			
-			# autoLogin = {
-			# 	enable = true;
-			# 	user = "myuser"; # Replace with your username
-			# };
-		};
-		desktopManager.gnome.enable = true;
+				# Gnome desktop configuration
+				services = {
+								xserver = {
+												enable = true;
+												displayManager.gdm = {
+																enable = true;
 
-		# Add xkbOptions to swap Left Alt and Left Ctrl
-		xkb.options = "ctrl:swap_lalt_lctrl";
-	};
+																# autoLogin = {
+																#     enable = true;
+																#     user = "myuser"; # Replace with your username
+																# };
+												};
+												desktopManager.gnome.enable = true;
+												xkb.options = "ctrl:swap_lalt_lctrl";
+								};
 
-	environment.gnome.excludePackages = (with pkgs; [
-		# epiphany # web browser
-		# evince # document viewer
-		# gedit # text editor
-		# gnome-photos
-		# totem # video player
-		atomix # puzzle game
-		cheese # webcam tool
-		geary # email reader
-		gnome-characters
-		gnome-music
-		gnome-terminal
-		gnome-tour
-		hitori # sudoku game
-		iagno # go game
-		tali # poker game
-	]);
+								# System services
+								dbus.packages = with pkgs; [ gnome2.GConf ];
+								udev.packages = with pkgs; [ gnome-settings-daemon ];
+								sysprof.enable = true;
+				};
 
-	# System-wide packages for GNOME functionality
-	environment.systemPackages = with pkgs; [
-		adwaita-icon-theme      # Default GNOME icon theme
-		gnome-tweaks            # GUI for additional GNOME settings
-		sysprof                       # System profiling tool
-		gnome-extension-manager
-	];
+				# Environment configuration
+				environment = {
+								gnome.excludePackages = (with pkgs; [
+												atomix
+												cheese
+												geary
+												gnome-characters
+												gnome-music
+												gnome-terminal
+												gnome-tour
+												hitori
+												iagno
+												tali
+								]);
 
-	# Enable dconf for GNOME configuration management
-	programs.dconf.enable = true;
+								systemPackages = with pkgs; [
+												adwaita-icon-theme
+												gnome-tweaks
+												sysprof
+												gnome-extension-manager
+								];
+				};
 
-	# Support for legacy GNOME 2 applications
-	services.dbus.packages = with pkgs; [ gnome2.GConf ];
+				# Program configurations
+				programs.dconf.enable = true;
 
-	# Enable udev rules for GNOME settings daemon (e.g., for tray icons)
-	services.udev.packages = with pkgs; [ gnome-settings-daemon ];
+				# Hardware settings
+				hardware.sensor.iio.enable = true;
 
-	# Enable system profiling service
-	services.sysprof.enable = true;
-
-	# Enable automatic screen rotation for devices with sensors
-	hardware.sensor.iio.enable = true;
-
-	# Workaround for auto-login issues
-	systemd.services."getty@tty1".enable = false;
-	systemd.services."autovt@tty1".enable = false;
-
+				# System services configuration
+				systemd.services = {
+								"getty@tty1".enable = false;
+								"autovt@tty1".enable = false;
+				};
 }
