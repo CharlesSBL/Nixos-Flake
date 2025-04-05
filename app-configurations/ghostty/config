@@ -82,7 +82,7 @@ keybind = global:alt+grave_accent=toggle_quick_terminal
 # custom-shader = /home/sach/.config/ghostty/shaders/galaxy.glsl
 custom-shader = /home/sach/.config/ghostty/shaders/in-game-crt.glsl
 
-# custom-shader = /home/sach/.config/ghostty/special-shader/special.glsl
+# custom-shader = /home/sach/.config/ghostty/shader/special.glsl
 # custom-shader = /home/sach/.config/ghostty/shaders/scanline.glsl
 # custom-shader = /home/sach/.config/ghostty/shaders/cineShader-Lava.glsl
 # custom-shader = /home/sach/.config/ghostty/shaders/bettercrt.glsl
