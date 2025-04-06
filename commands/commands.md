@@ -18,6 +18,16 @@ sudo nix-collect-garbage --delete-old
 # optimize after clean
 sudo nix-store --optimise
 
+
+```
+
+## Fun commands
+
+```sh
+# Power of nix shell
+nix-shell -p gparted
+sudo -E gparted
+
 # run vscode to edit root files
 sudo code --no-sandbox --user-data-dir
 ```
