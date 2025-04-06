@@ -2,6 +2,8 @@
 
 {
 	users.users.sach.packages = with pkgs; [
+		openvpn
+
 		# Desktop Environment
 		waybar
 		hyprpaper
