@@ -47,6 +47,7 @@
 		# Other Applications
 		gnome-text-editor
 		gnome-calculator
+		papers
 		
 		resources
 		easyeffects
