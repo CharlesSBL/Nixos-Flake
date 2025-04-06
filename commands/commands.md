@@ -24,6 +24,7 @@ sudo nix-store --optimise
 ## Fun commands
 
 ```sh
+nix-shell -p sway -p foot -p firefox -p vscodium # run codium
 # Power of nix shell
 nix-shell -p gparted
 sudo -E gparted
