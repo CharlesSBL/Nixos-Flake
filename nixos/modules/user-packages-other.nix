@@ -2,66 +2,66 @@
 
 {
 	users.users.sach.packages = with pkgs; [
-		openvpn
+		# openvpn  # Open source VPN client
 
 		# Desktop Environment
-		waybar
-		hyprpaper
-		networkmanagerapplet
+		# waybar    # Highly customizable status bar for Wayland
+		# hyprpaper # Wallpaper utility for Hyprland
+		# networkmanagerapplet  # Network management tray applet
 
 		# Development
-		dbeaver-bin
-		gitkraken
-		insomnia
-		postgresql
+		# dbeaver-bin          # Universal database tool
+		# gitkraken           # Git client with GUI
+		# insomnia            # REST API client
+		# postgresql          # Open source database
 		# gparted # not work correctly
-		gnome-disk-utility
-		baobab
+		gnome-disk-utility  # Disk management tool
+		baobab              # Disk usage analyzer
 
 		# Containerization
-		podman
-		podman-desktop
-		docker
-		docker-compose
+		# podman              # Daemonless container engine
+		# podman-desktop      # Desktop interface for Podman
+		# docker             # Container platform
+		# docker-compose     # Multi-container Docker applications
 
 		# Virtualization
-		gnome-boxes
+		gnome-boxes        # Virtual machine manager
 
 		# Graphics and Media
-		blender
-		imagemagick
-		vlc
+		# blender            # 3D creation suite
+		# imagemagick        # Image manipulation tools
+		vlc                # Media player
 
 		# Communication
-		slack
-		discord
-		telegram-desktop
-		thunderbird
+		# slack              # Team collaboration platform
+		discord            # Voice and text chat
+		telegram-desktop   # Messaging app
+		# thunderbird        # Email client
 
 		# System Tools
-		cpu-x
-		htop
-		btop
-		tree
-		fastfetch
-		tmux
+		# cpu-x              # System information tool
+		# htop               # Interactive process viewer
+		# btop               # Resource monitor
+		# tree               # Directory listing tool
+		# fastfetch          # System information display
+		# tmux               # Terminal multiplexer
 
 		# Other Applications
-		gnome-text-editor
-		gnome-calculator
-		papers
-		
-		resources
-		easyeffects
-		parsec-bin
-		bottles
+		gnome-text-editor  # Text editor
+		gnome-calculator   # Calculator
+		papers             # Document manager
+
+		# resources          # System resource monitor
+		easyeffects        # Audio effects tool
+		parsec-bin         # Remote desktop software
+		# bottles            # Windows compatibility layer
 		# protonplus   # works only with steam
 		# gfn-electron # nvidia now
-		google-chrome
-		mediawriter
-		foliate
-		flatpak
-		transmission_4-gtk
-		nautilus
+		google-chrome      # Web browser
+		mediawriter        # USB media creator
+		foliate            # E-book reader
+		# flatpak            # Application deployment framework
+		transmission_4-gtk # Torrent client
+		nautilus           # File manager
 	];
 }

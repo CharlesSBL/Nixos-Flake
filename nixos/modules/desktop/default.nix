@@ -18,7 +18,7 @@
 						#     user = "myuser"; # Replace with your username
 						# };
 				};
-				desktopManager.gnome.enable = false;
+				desktopManager.gnome.enable = true;
 				xkb.options = "ctrl:swap_lalt_lctrl";
 		};
 }

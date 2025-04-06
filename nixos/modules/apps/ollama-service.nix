@@ -2,10 +2,9 @@
 
 {
   services.ollama = {
-    enable = true;
+    enable = false;
     # acceleration = "cuda";
     # Optional: load models on startup
     # loadModels = [ ... ];
   };
 }
-

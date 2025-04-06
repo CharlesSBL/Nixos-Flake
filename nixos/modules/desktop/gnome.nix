@@ -3,9 +3,9 @@
 {
 		services = {
 				# System services
-				dbus.packages = with pkgs; [ gnome2.GConf ];
-				udev.packages = with pkgs; [ gnome-settings-daemon ];
-				sysprof.enable = true;
+				dbus.packages = with pkgs; [ gnome2.GConf ];  # GConf configuration system
+				udev.packages = with pkgs; [ gnome-settings-daemon ];  # GNOME settings daemon for hardware events
+				sysprof.enable = true;  # System-wide Linux profiler
 		};
 
 		services.gnome = {
@@ -17,23 +17,23 @@
 		# Environment configuration
 		environment = {
 				gnome.excludePackages = (with pkgs; [
-						atomix
-						cheese
-						geary
-						gnome-characters
-						gnome-music
-						gnome-terminal
-						gnome-tour
-						hitori
-						iagno
-						tali
+						atomix  # Puzzle game about molecular geometry
+						cheese  # Webcam application
+						geary  # GNOME email client
+						gnome-characters  # Character map application
+						gnome-music  # GNOME music player
+						gnome-terminal  # GNOME terminal emulator
+						gnome-tour  # GNOME welcome tour application
+						hitori  # Logic puzzle game
+						iagno  # GNOME version of Reversi/Othello
+						tali  # GNOME version of Yahtzee
 				]);
 
 				systemPackages = with pkgs; [
-						adwaita-icon-theme
-						gnome-tweaks
-						sysprof
-						gnome-extension-manager
+						adwaita-icon-theme  # Default GNOME icon theme
+						gnome-tweaks  # Advanced GNOME settings tool
+						sysprof  # System-wide profiler for Linux
+						gnome-extension-manager  # GUI tool for managing GNOME shell extensions
 				];
 		};
 
