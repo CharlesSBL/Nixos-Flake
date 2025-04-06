@@ -46,12 +46,14 @@
 
 		# Other Applications
 		gnome-text-editor
+		gnome-calculator
+		
 		resources
 		easyeffects
 		parsec-bin
 		bottles
-		protonplus
-		gfn-electron
+		# protonplus   # works only with steam
+		# gfn-electron # nvidia now
 		google-chrome
 		mediawriter
 		foliate
