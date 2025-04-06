@@ -12,7 +12,7 @@
 		gitkraken
 		insomnia
 		postgresql
-		gparted
+		# gparted # not work correctly
 		gnome-disk-utility
 		baobab
 
