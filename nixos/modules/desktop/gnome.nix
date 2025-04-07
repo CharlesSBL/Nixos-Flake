@@ -1,7 +1,9 @@
 { pkgs, ... }:
 
 {
-		services = {
+  services.xserver.desktopManager.gnome.enable = false;
+
+  services = {
 				# System services
 				dbus.packages = with pkgs; [ gnome2.GConf ];  # GConf configuration system
 				udev.packages = with pkgs; [ gnome-settings-daemon ];  # GNOME settings daemon for hardware events
@@ -16,19 +18,6 @@
 
 		# Environment configuration
 		environment = {
-				gnome.excludePackages = (with pkgs; [
-						atomix  # Puzzle game about molecular geometry
-						cheese  # Webcam application
-						geary  # GNOME email client
-						gnome-characters  # Character map application
-						gnome-music  # GNOME music player
-						gnome-terminal  # GNOME terminal emulator
-						gnome-tour  # GNOME welcome tour application
-						hitori  # Logic puzzle game
-						iagno  # GNOME version of Reversi/Othello
-						tali  # GNOME version of Yahtzee
-				]);
-
 				systemPackages = with pkgs; [
 						adwaita-icon-theme  # Default GNOME icon theme
 						gnome-tweaks  # Advanced GNOME settings tool
@@ -44,8 +33,8 @@
 		hardware.sensor.iio.enable = true;
 
 		# System services configuration
-		systemd.services = {
-				"getty@tty1".enable = false;
-				"autovt@tty1".enable = false;
-		};
+		# systemd.services = {
+		# 		"getty@tty1".enable = false;
+		# 		"autovt@tty1".enable = false;
+		# };
 }

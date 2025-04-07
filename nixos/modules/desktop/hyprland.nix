@@ -1,10 +1,10 @@
 
 {
 		# Hyprland desktop
-		# programs.hyprland = {
-		# 		enable = true;
-		# 		xwayland = {
-		# 				enable = true;
-		# 		};
-		# };
+		programs.hyprland = {
+				enable = false;
+				xwayland = {
+						enable = false;
+				};
+		};
 }

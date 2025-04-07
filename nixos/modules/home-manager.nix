@@ -1,10 +1,6 @@
 { ... }:
 
 {
-  # Ensure Home Manager is enabled
-  home-manager.useGlobalPkgs = true;
-  home-manager.useUserPackages = true;
-
   users.users.sach = {
     isNormalUser = true;
   };

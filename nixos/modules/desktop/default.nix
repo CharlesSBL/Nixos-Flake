@@ -1,24 +1,14 @@
 { config, pkgs, ... }:
 
 {
-		imports = [
-				./gnome.nix
-				./hyprland.nix
-		];
+	imports = [
+		./gnome.nix
+		./sway.nix
+		./hyprland.nix
+	];
 
-		services.xserver = {
-				enable = true;
-				autorun = true;
-
-				displayManager.gdm = {
-						enable = true;
-
-						# autoLogin = {
-						#     enable = true;
-						#     user = "myuser"; # Replace with your username
-						# };
-				};
-				desktopManager.gnome.enable = true;
-				xkb.options = "ctrl:swap_lalt_lctrl";
-		};
+	services.xserver.enable = true;
+  services.xserver.autorun = true;
+  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.xkb.options = "ctrl:swap_lalt_lctrl";
 }
