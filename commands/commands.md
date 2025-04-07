@@ -21,7 +21,7 @@ sudo nix-store --optimise
 
 ```
 
-## Fun commands
+## Other commands
 
 ```sh
 nix-shell -p sway -p foot -p firefox -p vscodium # run codium
