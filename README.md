@@ -122,9 +122,3 @@ Includes configurations for:
 - Custom keybindings are configured for GNOME
 - Intel graphics drivers are included but must be enabled explicitly
 
-## License
-
-[License information here]
-```
-
-This README provides a comprehensive overview of your NixOS configuration, its structure, features, and usage instructions. You might want to customize it further based on specific details or requirements not apparent in the codebase.
