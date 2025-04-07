@@ -5,7 +5,7 @@
   users.users.sach = {
     isNormalUser = true;
     description = "sach";
-    extraGroups = [ "networkmanager" "wheel" "video" ];
+    extraGroups = [ "networkmanager" "wheel" "video" "audio" ];
   };
 
   # Optional: Example user configuration

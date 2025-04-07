@@ -4,6 +4,7 @@
   imports = [
     ./boot.nix
     ./intel-drivers.nix
+    ./intel.nix
     ./kernel-setup.nix
     ./localization.nix
     ./networking.nix
