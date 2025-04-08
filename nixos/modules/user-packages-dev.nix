@@ -10,8 +10,6 @@
         nil
         nixpkgs-fmt
 
-
-
         # JavaScript/TypeScript (typescript-language-server)
         typescript-language-server
 

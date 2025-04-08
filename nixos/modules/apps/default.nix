@@ -6,8 +6,8 @@
     ./bash-setup.nix
     ./ollama-service.nix
     ./tor-conf.nix
-    ./helix.nix
-    ./zsh.nix
+    ./helix
     ./rust
+    ./zsh.nix
   ];
 }

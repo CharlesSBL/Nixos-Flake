@@ -15,7 +15,6 @@
         firefox
         libreoffice
         whitesur-icon-theme
-        rustup
       ];
 
       stateVersion = "24.11";
@@ -28,10 +27,5 @@
       userEmail = "karl.sobolewski@outlook.com";
     };
 
-    # Set up Rust environment
-    programs.rustup = {
-      enable = true;
-      components = [ "rust-analyzer" ]; # Adds rust-analyzer to the toolchain
-    };
   };
 }
