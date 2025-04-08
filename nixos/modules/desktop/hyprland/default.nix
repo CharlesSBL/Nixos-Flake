@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ ... }:
 {
   imports = [
     ./hyprland.nix
@@ -6,6 +6,5 @@
     ./hyprlock.nix
     ./variables.nix
     ./hypr-apps.nix
-    inputs.hyprland.homeManagerModules.default
   ];
 }

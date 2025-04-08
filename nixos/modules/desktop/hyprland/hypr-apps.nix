@@ -8,11 +8,7 @@
     home = {
       packages = with pkgs; [
         waybar
-        nm-applet
         poweralertd
-        wl-paste
-        swaync
-        hyprctl
         hyprlock
       ];
 
