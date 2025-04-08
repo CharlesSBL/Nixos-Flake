@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   # Enable Sway Wayland compositor
@@ -23,7 +23,7 @@
 
   # Configure Home Manager for the user
   # Replace 'yourusername' with your actual username
-  home-manager.users.sach = { pkgs, ... }: {
+  home-manager.users.sach = { ... }: {
     wayland.windowManager.sway = {
       enable = true;
       wrapperFeatures.gtk = true; # so that GTK applications work properly

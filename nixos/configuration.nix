@@ -1,6 +1,6 @@
 # "configuration.nix"
 # To rebuild the NixOS: "$ nixos-rebuild switch"
-{ config, pkgs, ... }:
+{ ... }:
 
 {
   imports = [

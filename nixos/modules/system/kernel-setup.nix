@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   # Use Linux 5.10 LTS kernel for stability and compatibility with 11th Gen Intel CPUs
