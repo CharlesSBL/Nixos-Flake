@@ -2,9 +2,9 @@
 
 {
   imports = [
-    ./gnome.nix
+    ./gnome
     ./sway.nix
-    ./hyprland.nix
+    ./hyprland
   ];
 
   services.xserver.enable = true;

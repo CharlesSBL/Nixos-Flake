@@ -1,8 +1,5 @@
 { pkgs, ... }:
-
 {
-  services.xserver.desktopManager.gnome.enable = true;
-
   services = {
     # System services
     dbus.packages = with pkgs; [ gnome2.GConf ]; # GConf configuration system

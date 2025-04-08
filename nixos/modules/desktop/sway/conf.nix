@@ -1,26 +1,4 @@
-{ pkgs, ... }:
-
-{
-  # Enable Sway Wayland compositor
-  programs.sway.enable = true;
-
-  # Enable XServer and GDM for graphical login
-  services.xserver.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
-
-  # Enable light for brightness control
-  programs.light.enable = true;
-
-  # Install essential packages for a functional Sway setup
-  environment.systemPackages = with pkgs; [
-    # alacritty   # Terminal emulator
-    wofi # Application launcher
-    grim # Screenshot tool
-    slurp # Region selection for screenshots
-    wl-clipboard # Clipboard management
-    mako # Notification daemon
-  ];
-
+{ ... }: {
   # Configure Home Manager for the user
   # Replace 'yourusername' with your actual username
   home-manager.users.sach = { ... }: {

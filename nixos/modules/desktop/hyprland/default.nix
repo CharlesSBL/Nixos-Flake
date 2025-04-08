@@ -1,10 +1,10 @@
 { ... }:
 {
   imports = [
-    ./hyprland.nix
+    # ./hyprland.nix
     ./config.nix
-    ./hyprlock.nix
-    ./variables.nix
-    ./hypr-apps.nix
+    # ./hyprlock.nix
+    # ./variables.nix
+    # ./hypr-apps.nix
   ];
 }

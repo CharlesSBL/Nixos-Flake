@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 {
   home-manager.users.sach = { pkgs, ... }: {
     nix = {
