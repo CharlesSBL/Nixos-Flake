@@ -16,9 +16,17 @@
         grep = "rg";
       };
 
+      plugins = [
+        {
+          name = "powerlevel10k"; # Name of the plugin/theme
+          src = pkgs.zsh-powerlevel10k; # Nix package for Powerlevel10k
+          file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme"; # Path to the theme file
+        }
+      ];
+
       oh-my-zsh = {
         enable = true;
-        theme = "robbyrussell";
+        # theme = "robbyrussell";
         plugins = [
           "git"
           "npm"
