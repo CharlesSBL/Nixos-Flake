@@ -28,43 +28,59 @@
   "buffer_font_weight": 900,
   "theme": {
     "mode": "system",
-    "light": "One Light",
+    "light": "Ayu Mirage",
     "dark": "Ayu Dark"
   },
 
   "lsp": {
     "rust-analyzer": {
+      "command": "rust-analyzer",
+      "args": [],
       "binary": {
-        // Tells Zed to search for 'rust-analyzer' in the PATH
-        "path_lookup": true
+        "path": "/etc/profiles/per-user/sach/bin/rust-analyzer"
       }
     },
-    "nil": {
-      // Or potentially "nix", check Zed's documentation if 'nil' doesn't work
+    "nixd": {
+      "command": "nixd",
+      "args": [],
       "binary": {
-        "path_lookup": true
-      }
-    },
-    "elixir-ls": {
-      "binary": {
-        "path_lookup": true
-      }
-    },
-    "typescript-language-server": {
-      // The key here might vary, check Zed's defaults/docs
-      "binary": {
-        "program": "typescript-language-server", // Explicit program name if needed
-        "arguments": ["--stdio"] // Common arguments
-      }
-      // Alternatively, try path_lookup first:
-      // "binary": { "path_lookup": true }
-    },
-    "pylsp": {
-      // Common name for python-lsp-server in editor configs
-      "binary": {
-        "path_lookup": true
+        "path": "/etc/profiles/per-user/sach/bin/nixd"
       }
     }
-    // Add entries for other LSPs you installed using path_lookup = true
+  },
+  "nil": {
+    "command": "nil",
+    "args": [],
+    "binary": {
+      "path": "/etc/profiles/per-user/sach/bin/nil"
+    }
+  },
+  "typescript-language-server": {
+    "command": "typescript-language-server",
+    "args": ["--stdio"],
+    "binary": {
+      "path": "/etc/profiles/per-user/sach/bin/typescript-language-server"
+    }
+  },
+  "clangd": {
+    "command": "clangd",
+    "args": [],
+    "binary": {
+      "path": "/etc/profiles/per-user/sach/bin/clangd"
+    }
+  },
+  "jdtls": {
+    "command": "jdtls",
+    "args": [],
+    "binary": {
+      "path": "/etc/profiles/per-user/sach/bin/jdtls"
+    }
+  },
+  "pyright": {
+    "command": "pyright",
+    "args": ["--stdio"],
+    "binary": {
+      "path": "/etc/profiles/per-user/sach/bin/pyright"
+    }
   }
 }

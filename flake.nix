@@ -12,7 +12,7 @@
   outputs = { self, nixpkgs, home-manager }: {
     nixosConfigurations.nixrach = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      specialArgs = { inherit home-manager; };  # Pass home-manager to modules
+      specialArgs = { inherit home-manager; }; # Pass home-manager to modules
       modules = [
         ./nixos/configuration.nix
         home-manager.nixosModules.home-manager
