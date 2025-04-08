@@ -2,7 +2,7 @@
 
 {
   # Use Linux 5.10 LTS kernel for stability and compatibility with 11th Gen Intel CPUs
-  boot.kernelPackages = pkgs.linuxKernel.packages.linux_5_10;
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_5_15;
 
   # Configure kernel parameters for Intel iGPU power optimization
   boot.kernelParams = [

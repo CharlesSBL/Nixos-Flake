@@ -45,9 +45,9 @@
     # Editors and IDEs
     editors = [
       # vim # Terminal-based text editor
-      vscode # Modern code editor
+      # vscode # Modern code editor
       zed-editor # Fast, collaborative code editor
-      jetbrains.idea-community-bin # IntelliJ IDEA Community Edition
+      # jetbrains.idea-community-bin # IntelliJ IDEA Community Edition
       # android-studio # Android development IDE
       ghostty # GPU-accelerated terminal emulator
     ];

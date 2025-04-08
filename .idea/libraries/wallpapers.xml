@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="wallpapers">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app-configurations/wallpapers.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
