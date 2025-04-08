@@ -1,26 +1,24 @@
-{ ... }:
+{ pkgs, ... }:
 {
   home-manager.users.sach = { ... }: {
     programs.zsh = {
       enable = true;
       enableCompletion = true;
-      zsh-autoenv.enable = true;
-      autosuggestions.enable = true;
       syntaxHighlighting.enable = true;
 
       shellAliases = {
-        ll = "exa -l --icons";
-        ls = "exa --icons";
-        la = "exa -la --icons";
-        tree = "exa --tree --icons";
+        ll = "ls -l";
+        ls = "ls";
+        la = "ls -la";
+        tree = "tree";
         cat = "bat";
         update = "sudo nixos-rebuild switch";
         grep = "rg";
       };
 
-      ohMyZsh = {
+      oh-my-zsh = {
         enable = true;
-        theme = "powerlevel10k/powerlevel10k";
+        theme = "robbyrussell";
         plugins = [
           "git"
           "npm"
@@ -29,8 +27,6 @@
           "rust"
           "deno"
           "colored-man-pages"
-          "zsh-interactive-cd"
-          "fzf"
           "z"
           "dirhistory"
         ];
@@ -41,11 +37,8 @@
         export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password-store";
         export ZK_NOTEBOOK_DIR="~/stuff/notes";
         export DIRENV_LOG_FORMAT="";
+        export FZF_BASE=${pkgs.fzf}/share/fzf;
         bindkey '^ ' autosuggest-accept
-
-        # Enable fzf keybindings and completion
-        source /usr/share/fzf/key-bindings.zsh
-        source /usr/share/fzf/completion.zsh
 
         # Better completion display
         zstyle ':completion:*' menu select

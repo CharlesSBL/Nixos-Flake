@@ -7,5 +7,6 @@
     ./ollama-service.nix
     ./tor-conf.nix
     ./helix.nix
+    ./zsh.nix
   ];
 }

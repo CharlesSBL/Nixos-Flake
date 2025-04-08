@@ -1,5 +1,4 @@
 
-
 font-family = "JetBrainsMono-Regular"
 font-style-bold = "Medium"
 font-style-bold-italic = "Medium Italic"
@@ -7,6 +6,8 @@ font-style-bold-italic = "Medium Italic"
 font-size = 14
 # Bold font, try more natural rendering effect
 font-thicken = true
+
+shell = "/etc/profiles/per-user/sach/bin/zsh/zsh"
 
 grapheme-width-method = "unicode"
 # Do not adjust cell width to avoid display issues
@@ -46,7 +47,7 @@ palette = 14=#56b6c2
 # Pure white for emphasized text
 palette = 15=#ffffff
 # Same as palette 0
-background = 405060
+background = 000000
 # Same as palette 7 for better contrast
 foreground = dcdfe4
 # Use yellow as cursor color for better visibility
@@ -68,7 +69,7 @@ window-padding-x = 15
 window-padding-y = 15
 window-save-state = "always"
 
-background-opacity = 0.5
+background-opacity = 0.8
 # Background opacity
 background-blur-radius = 25
 # Background blur radius
@@ -80,13 +81,12 @@ keybind = global:alt+grave_accent=toggle_quick_terminal
 # custom-shader = /home/sach/.config/ghostty/shaders/bloom.glsl
 # custom-shader = /home/sach/.config/ghostty/shaders/pixels.glsl
 # custom-shader = /home/sach/.config/ghostty/shaders/galaxy.glsl
-custom-shader = /home/sach/.config/ghostty/shaders/in-game-crt.glsl
+# custom-shader = /home/sach/.config/ghostty/shaders/in-game-crt.glsl
 
-# custom-shader = /home/sach/.config/ghostty/shader/special.glsl
+# custom-shader = /home/sach/.config/ghostty/special-shader/special.glsl
 # custom-shader = /home/sach/.config/ghostty/shaders/scanline.glsl
 # custom-shader = /home/sach/.config/ghostty/shaders/cineShader-Lava.glsl
 # custom-shader = /home/sach/.config/ghostty/shaders/bettercrt.glsl
 # custom-shader = /home/sach/.config/ghostty/shaders/animated-gradient-shader.glsl
 # custom-shader = /home/sach/.config/ghostty/shaders/crt.glsl
 # custom-shader = /home/sach/.config/ghostty/shaders/cubes.glsl
-
