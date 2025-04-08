@@ -28,7 +28,7 @@ in
       hardware.cpu.intel.updateMicrocode = true;
       nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 
-      # powerManagement.cpuFreqGovernor = "performance";
+      powerManagement.cpuFreqGovernor = "performance";
 
       services.thermald.enable = true;
 

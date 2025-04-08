@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 {
-  services.xserver.desktopManager.gnome.enable = false;
+  services.xserver.desktopManager.gnome.enable = true;
 
   services = {
 				# System services

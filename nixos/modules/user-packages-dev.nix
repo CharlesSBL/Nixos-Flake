@@ -8,6 +8,7 @@
       languageServers = [
         nixd
         nil
+        nixpkgs-fmt
 
         # Rust (rust-analyzer)
         rust-analyzer

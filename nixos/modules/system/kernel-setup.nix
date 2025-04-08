@@ -6,19 +6,19 @@
 
   # Configure kernel parameters for Intel iGPU power optimization
   boot.kernelParams = [
-    "i915.enable_psr=1"    # Panel Self Refresh for display power saving
-    "i915.enable_rc6=7"    # Deepest GPU power-saving state
-    "i915.enable_guc=2"    # Enable GuC + HuC for better power management and video acceleration
+    "i915.enable_psr=1" # Panel Self Refresh for display power saving
+    "i915.enable_rc6=7" # Deepest GPU power-saving state
+    "i915.enable_guc=2" # Enable GuC + HuC for better power management and video acceleration
   ];
 
   # Enable auto-cpufreq for dynamic governor adjustment based on power source
-  services.auto-cpufreq.enable = true;
+  services.auto-cpufreq.enable = false;
   services.auto-cpufreq.settings = {
     battery = {
-      governor = "powersave";  # Power saving on battery
+      governor = "powersave"; # Power saving on battery
     };
     charger = {
-      governor = "performance";  # Maximum performance when plugged in
+      governor = "performance"; # Maximum performance when plugged in
     };
   };
 

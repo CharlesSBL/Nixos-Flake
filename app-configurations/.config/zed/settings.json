@@ -34,50 +34,56 @@
 
   "lsp": {
     "rust-analyzer": {
-      "command": "rust-analyzer",
+      "command": "/etc/profiles/per-user/sach/bin/rust-analyzer",
       "args": [],
       "binary": {
         "path": "/etc/profiles/per-user/sach/bin/rust-analyzer"
       }
     },
+    "nil": {
+      "binary": {
+        "path": "/etc/profiles/per-user/sach/bin/nil"
+      },
+      "initialization_options": {
+        "formatting": {
+          "command": ["/etc/profiles/per-user/sach/bin/nixpkgs-fmt"]
+        }
+      }
+    },
     "nixd": {
-      "command": "nixd",
-      "args": [],
       "binary": {
         "path": "/etc/profiles/per-user/sach/bin/nixd"
+      },
+      "initialization_options": {
+        "formatting": {
+          "command": ["/etc/profiles/per-user/sach/bin/nixpkgs-fmt"]
+        }
       }
     }
   },
-  "nil": {
-    "command": "nil",
-    "args": [],
-    "binary": {
-      "path": "/etc/profiles/per-user/sach/bin/nil"
-    }
-  },
   "typescript-language-server": {
-    "command": "typescript-language-server",
+    "command": "/etc/profiles/per-user/sach/bin/typescript-language-server",
     "args": ["--stdio"],
     "binary": {
       "path": "/etc/profiles/per-user/sach/bin/typescript-language-server"
     }
   },
   "clangd": {
-    "command": "clangd",
+    "command": "/etc/profiles/per-user/sach/bin/clangd",
     "args": [],
     "binary": {
       "path": "/etc/profiles/per-user/sach/bin/clangd"
     }
   },
   "jdtls": {
-    "command": "jdtls",
+    "command": "/etc/profiles/per-user/sach/bin/jdtls",
     "args": [],
     "binary": {
       "path": "/etc/profiles/per-user/sach/bin/jdtls"
     }
   },
   "pyright": {
-    "command": "pyright",
+    "command": "/etc/profiles/per-user/sach/bin/pyright",
     "args": ["--stdio"],
     "binary": {
       "path": "/etc/profiles/per-user/sach/bin/pyright"
