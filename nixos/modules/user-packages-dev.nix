@@ -10,8 +10,7 @@
         nil
         nixpkgs-fmt
 
-        # Rust (rust-analyzer)
-        rust-analyzer
+
 
         # JavaScript/TypeScript (typescript-language-server)
         typescript-language-server
@@ -38,7 +37,6 @@
         nodejs_23 # Node.js JavaScript runtime
         pnpm # Fast, disk space efficient package manager for Node.js
         python314 # Python programming language interpreter
-        rustup # Rust toolchain installer
         openjdk # Java Development Kit
         dotnet-sdk # .NET Core SDK
         # swift # Swift programming language

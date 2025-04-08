@@ -3,7 +3,7 @@
 {
   imports = [
     ./gnome
-    ./sway.nix
+    ./sway
     ./hyprland
   ];
 

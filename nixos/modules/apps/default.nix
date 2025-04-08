@@ -8,5 +8,6 @@
     ./tor-conf.nix
     ./helix.nix
     ./zsh.nix
+    ./rust
   ];
 }
