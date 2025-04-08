@@ -1,4 +1,5 @@
 
+
 font-family = "JetBrainsMono-Regular"
 font-style-bold = "Medium"
 font-style-bold-italic = "Medium Italic"
@@ -7,7 +8,9 @@ font-size = 14
 # Bold font, try more natural rendering effect
 font-thicken = true
 
-shell = "/etc/profiles/per-user/sach/bin/zsh/zsh"
+
+
+
 
 grapheme-width-method = "unicode"
 # Do not adjust cell width to avoid display issues
@@ -90,3 +93,5 @@ keybind = global:alt+grave_accent=toggle_quick_terminal
 # custom-shader = /home/sach/.config/ghostty/shaders/animated-gradient-shader.glsl
 # custom-shader = /home/sach/.config/ghostty/shaders/crt.glsl
 # custom-shader = /home/sach/.config/ghostty/shaders/cubes.glsl
+
+command = /etc/profiles/per-user/sach/bin/zsh
