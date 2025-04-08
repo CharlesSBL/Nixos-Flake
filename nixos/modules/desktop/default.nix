@@ -4,7 +4,7 @@
   imports = [
     ./gnome.nix
     ./sway.nix
-    ./hyprland.nix
+    ./hyprland
   ];
 
   services.xserver.enable = true;

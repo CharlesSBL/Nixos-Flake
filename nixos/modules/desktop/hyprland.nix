@@ -1,9 +1,9 @@
 {
   # Hyprland desktop
   programs.hyprland = {
-    enable = false;
+    enable = true;
     xwayland = {
-      enable = false;
+      enable = true;
     };
   };
 }
