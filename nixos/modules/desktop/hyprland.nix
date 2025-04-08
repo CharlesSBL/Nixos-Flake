@@ -1,10 +1,9 @@
-
 {
-		# Hyprland desktop
-		programs.hyprland = {
-				enable = false;
-				xwayland = {
-						enable = false;
-				};
-		};
+  # Hyprland desktop
+  programs.hyprland = {
+    enable = false;
+    xwayland = {
+      enable = false;
+    };
+  };
 }

@@ -15,5 +15,5 @@
     alias stop-gui='sudo systemctl stop gdm.service'
     alias to-console='sudo systemctl isolate multi-user.target'
     alias to-gui='sudo systemctl isolate graphical.target'
-'';
+  '';
 }

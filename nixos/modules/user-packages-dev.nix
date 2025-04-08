@@ -73,5 +73,6 @@
         ghostty # GPU-accelerated terminal emulator
       ];
 
-    in languageServers ++ languages ++ buildTools ++ vcsTools ++ editors;
+    in
+    languageServers ++ languages ++ buildTools ++ vcsTools ++ editors;
 }

@@ -19,5 +19,5 @@
   # };
 
   # Define custom groups
-  users.groups.myuser = {};
+  users.groups.myuser = { };
 }
