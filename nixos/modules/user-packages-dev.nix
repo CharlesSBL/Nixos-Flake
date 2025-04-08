@@ -14,7 +14,7 @@
         typescript-language-server
 
         # C/C++ (clangd or ccls)
-        clang-tools # Includes clangd
+        # clang-tools # Includes clangd
         # OR
         ccls
 

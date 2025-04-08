@@ -2,6 +2,17 @@
 
 {
   home-manager.users.sach = { pkgs, ... }: {
+    # TODO: [ CharlesSBL ]
+    # make separate file for formatters and languages
+
+    home.packages = with pkgs; [
+      nixfmt-rfc-style
+      nodePackages.prettier
+      clang-tools
+      google-java-format
+      python312Packages.black
+    ];
+
     xdg.configFile."helix/languages.toml".text = ''
       [language-server.nil]
       command = "/etc/profiles/per-user/sach/bin/nil"
@@ -43,6 +54,26 @@
       [[language]]
       name = "nix"
       formatter = { command = "nixfmt", args = [] }
+
+      [[language]]
+      name = "rust"
+      formatter = { command = "rustfmt", args = [] }
+
+      [[language]]
+      name = "typescript"
+      formatter = { command = "prettier", args = ["--parser", "typescript"] }
+
+      [[language]]
+      name = "cpp"
+      formatter = { command = "clang-format", args = [] }
+
+      [[language]]
+      name = "java"
+      formatter = { command = "google-java-format", args = [] }
+
+      [[language]]
+      name = "python"
+      formatter = { command = "black", args = [] }
     '';
   };
 }
