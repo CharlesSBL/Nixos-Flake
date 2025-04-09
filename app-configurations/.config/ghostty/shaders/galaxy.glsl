@@ -26,7 +26,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
   const float formulaParameter = 0.79;
   const float volumeSteps = 7.0;
   const float stepSize = 0.24;
-  const float zoomFactor = 0.1;
+  const float zoomFactor = 2.1;
   const float tilingFactor = 0.85;
   const float baseBrightness = 0.0008;
   const float darkMatter = 0.2;

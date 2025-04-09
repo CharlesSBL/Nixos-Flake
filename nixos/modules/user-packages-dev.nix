@@ -2,7 +2,8 @@
 { pkgs, ... }:
 
 {
-  users.users.sach.packages = with pkgs;
+  users.users.sach.packages =
+    with pkgs;
     let
       # Version control
       vcsTools = [
@@ -19,6 +20,8 @@
         # android-studio # Android development IDE
         ghostty # GPU-accelerated terminal emulator
         lf
+        superfile
+        mc
       ];
 
     in

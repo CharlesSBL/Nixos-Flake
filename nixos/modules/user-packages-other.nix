@@ -64,5 +64,6 @@
     # flatpak            # Application deployment framework
     transmission_4-gtk # Torrent client
     nautilus # File manager
+    bat
   ];
 }

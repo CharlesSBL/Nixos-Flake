@@ -8,12 +8,21 @@
 
       shellAliases = {
         ll = "ls -l";
-        ls = "ls";
         la = "ls -la";
-        tree = "tree";
         cat = "bat";
-        update = "sudo nixos-rebuild switch";
-        grep = "rg";
+        # update = "sudo nixos-rebuild switch";
+        # grep = "rg";
+
+        nixb = "cd ~/1-Nixos-Flake && sudo nixos-rebuild switch --flake .#nixrach";
+        nixg = "cd ~/1-Nixos-Flake/ && sh ./commands/git-up.sh";
+        nixs = "nix-shell -p";
+        nixc = "nix-collect-garbage && sudo nix-store --optimise";
+        nixclean = "sudo nix-collect-garbage -d && sudo nix-store --optimise";
+
+        start-gui = "sudo systemctl start gdm.service";
+        stop-gui = "sudo systemctl stop gdm.service";
+        to-console = "sudo systemctl isolate multi-user.target";
+        to-gui = "sudo systemctl isolate graphical.target";
       };
 
       plugins = [

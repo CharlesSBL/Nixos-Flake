@@ -1,12 +1,12 @@
 
 
 custom-shader = /home/sach/.config/ghostty/shaders/bloom.glsl
-custom-shader = /home/sach/.config/ghostty/shaders/pixels.glsl
-# custom-shader = /home/sach/.config/ghostty/shaders/galaxy.glsl
+# custom-shader = /home/sach/.config/ghostty/shaders/pixels.glsl
+custom-shader = /home/sach/.config/ghostty/shaders/galaxy.glsl
 # custom-shader = /home/sach/.config/ghostty/shaders/in-game-crt.glsl
 
 # custom-shader = /home/sach/.config/ghostty/special-shader/special.glsl
-# custom-shader = /home/sach/.config/ghostty/shaders/scanline.glsl
+#  custom-shader = /home/sach/.config/ghostty/shaders/scanline.glsl
 # custom-shader = /home/sach/.config/ghostty/shaders/cineShader-Lava.glsl
 # custom-shader = /home/sach/.config/ghostty/shaders/bettercrt.glsl
 # custom-shader = /home/sach/.config/ghostty/shaders/animated-gradient-shader.glsl
@@ -20,7 +20,7 @@ font-family = "JetBrainsMono-Regular"
 font-style-bold = "Medium"
 font-style-bold-italic = "Medium Italic"
 # Slightly reduce font size, adjust according to your screen and preferences
-font-size = 14
+font-size = 18
 # Bold font, try more natural rendering effect
 font-thicken = true
 

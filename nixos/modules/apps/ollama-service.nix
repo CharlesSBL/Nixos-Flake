@@ -7,4 +7,6 @@
     # Optional: load models on startup
     # loadModels = [ ... ];
   };
+
+  services.open-webui.enable = true;
 }
