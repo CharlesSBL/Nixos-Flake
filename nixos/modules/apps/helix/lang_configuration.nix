@@ -1,239 +1,256 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+
+{
   home-manager.users.sach = { pkgs, ... }: {
 
-    programs.helix.languages = {
-      # Language server configurations
-      language-server.typescript-language-server = with pkgs.nodePackages; {
-        command = "${typescript-language-server}/bin/typescript-language-server";
-        args = [ "--stdio" "--tsserver-path=${typescript}/lib/node_modules/typescript/lib" ];
-      };
 
-      language-server.rust-analyzer = {
-        command = "${pkgs.rust-analyzer}/bin/rust-analyzer";
-        args = [ ];
-      };
+    # Directly define languages.toml
+    xdg.configFile."helix/languages.toml".text = ''
+      [[language]]
+      auto-format = false
+      comment-tokens = "//"
+      file-types = ["rs"]
+      language-servers = ["rust-analyzer"]
+      name = "rust"
+      scope = "source.rust"
 
-      language-server.clangd = {
-        command = "${pkgs.clang-tools}/bin/clangd";
-        args = [ ];
-      };
+        [language.indent]
+        tab-width = 4
+        unit = "    "
 
-      language-server.jdtls = {
-        command = "${pkgs.jdt-language-server}/bin/jdtls";
-        args = [ ];
-      };
+      [[language]]
+      comment-tokens = "//"
+      file-types = ["c", "h"]
+      language-servers = ["clangd"]
+      name = "c"
+      scope = "source.c"
 
-      language-server.pyright = {
-        command = "${pkgs.pyright}/bin/pyright-langserver";
-        args = [ "--stdio" ];
-      };
+        [language.indent]
+        tab-width = 4
+        unit = "    "
 
-      language-server.bash-language-server = {
-        command = "${pkgs.bash-language-server}/bin/bash-language-server";
-        args = [ "start" ];
-      };
+      [[language]]
+      comment-tokens = "//"
+      file-types = ["cpp", "hpp", "cxx", "hxx"]
+      language-servers = ["clangd"]
+      name = "cpp"
+      scope = "source.cpp"
 
-      language-server.gopls = {
-        command = "${pkgs.go-tools}/bin/gopls";
-        args = [ ];
-      };
+        [language.indent]
+        tab-width = 4
+        unit = "    "
 
-      language-server.sourcekit-lsp = {
-        command = "${pkgs.swift}/bin/sourcekit-lsp";
-        args = [ ];
-      };
+      [[language]]
+      comment-tokens = "//"
+      file-types = ["java"]
+      language-servers = ["jdtls"]
+      name = "java"
+      scope = "source.java"
 
-      language-server.kotlin-language-server = {
-        command = "${pkgs.kotlin-language-server}/bin/kotlin-language-server";
-        args = [ ];
-      };
+        [language.indent]
+        tab-width = 4
+        unit = "    "
 
-      # Language-specific configurations
-      language = [
-        {
-          name = "rust";
-          scope = "source.rust";
-          file-types = [ "rs" ];
-          comment-tokens = "//";
-          indent.tab-width = 4;
-          indent.unit = "    ";
-          language-servers = [ "rust-analyzer" ];
-          auto-format = false;
-        }
+      [[language]]
+      comment-tokens = "#"
+      file-types = ["py"]
+      language-servers = ["pyright"]
+      name = "python"
+      scope = "source.python"
 
-        {
-          name = "c";
-          scope = "source.c";
-          file-types = [ "c" "h" ];
-          comment-tokens = "//";
-          indent.tab-width = 4;
-          indent.unit = "    ";
-          language-servers = [ "clangd" ];
-        }
+        [language.indent]
+        tab-width = 4
+        unit = "    "
 
-        {
-          name = "cpp";
-          scope = "source.cpp";
-          file-types = [ "cpp" "hpp" "cxx" "hxx" ];
-          comment-tokens = "//";
-          indent.tab-width = 4;
-          indent.unit = "    ";
-          language-servers = [ "clangd" ];
-        }
+      [[language]]
+      comment-tokens = "<!--"
+      file-types = ["html", "htm"]
+      name = "html"
+      scope = "text.html"
 
-        {
-          name = "java";
-          scope = "source.java";
-          file-types = [ "java" ];
-          comment-tokens = "//";
-          indent.tab-width = 4;
-          indent.unit = "    ";
-          language-servers = [ "jdtls" ];
-        }
+        [language.block-comment-tokens]
+        end = "-->"
+        start = "<!--"
 
-        {
-          name = "python";
-          scope = "source.python";
-          file-types = [ "py" ];
-          comment-tokens = "#";
-          indent.tab-width = 4;
-          indent.unit = "    ";
-          language-servers = [ "pyright" ];
-        }
+        [language.indent]
+        tab-width = 2
+        unit = "  "
 
-        {
-          name = "html";
-          scope = "text.html";
-          file-types = [ "html" "htm" ];
-          comment-tokens = "<!--";
-          block-comment-tokens.start = "<!--";
-          block-comment-tokens.end = "-->";
-          indent.tab-width = 2;
-          indent.unit = "  ";
-        }
+      [[language]]
+      comment-tokens = "/*"
+      file-types = ["css"]
+      name = "css"
+      scope = "source.css"
 
-        {
-          name = "css";
-          scope = "source.css";
-          file-types = [ "css" ];
-          comment-tokens = "/*";
-          block-comment-tokens.start = "/*";
-          block-comment-tokens.end = "*/";
-          indent.tab-width = 2;
-          indent.unit = "  ";
-        }
+        [language.block-comment-tokens]
+        end = "*/"
+        start = "/*"
 
-        {
-          name = "javascript";
-          scope = "source.js";
-          file-types = [ "js" "jsx" ];
-          comment-tokens = "//";
-          indent.tab-width = 2;
-          indent.unit = "  ";
-          language-servers = [ "typescript-language-server" ];
-        }
+        [language.indent]
+        tab-width = 2
+        unit = "  "
 
-        {
-          name = "react";
-          scope = "source.jsx";
-          file-types = [ "jsx" ];
-          comment-tokens = "//";
-          indent.tab-width = 2;
-          indent.unit = "  ";
-          language-servers = [ "typescript-language-server" ];
-        }
+      [[language]]
+      comment-tokens = "//"
+      file-types = ["js", "jsx"]
+      language-servers = ["typescript-language-server"]
+      name = "javascript"
+      scope = "source.js"
 
-        {
-          name = "csharp";
-          scope = "source.cs";
-          file-types = [ "cs" ];
-          comment-tokens = "//";
-          indent.tab-width = 4;
-          indent.unit = "    ";
-          language-servers = [ "omnisharp" ];
-        }
+        [language.indent]
+        tab-width = 2
+        unit = "  "
 
-        {
-          name = "sh";
-          scope = "source.shell";
-          file-types = [ "sh" "bash" ];
-          shebangs = [ "sh" "bash" ];
-          comment-tokens = "#";
-          indent.tab-width = 4;
-          indent.unit = "    ";
-          language-servers = [ "bash-language-server" ];
-        }
+      [[language]]
+      comment-tokens = "//"
+      file-types = ["jsx"]
+      language-servers = ["typescript-language-server"]
+      name = "react"
+      scope = "source.jsx"
 
-        {
-          name = "markdown";
-          scope = "text.md";
-          file-types = [ "md" "markdown" ];
-          comment-tokens = "<!--";
-          block-comment-tokens.start = "<!--";
-          block-comment-tokens.end = "-->";
-          indent.tab-width = 2;
-          indent.unit = "  ";
-        }
+        [language.indent]
+        tab-width = 2
+        unit = "  "
 
-        {
-          name = "typescript";
-          scope = "source.ts";
-          file-types = [ "ts" "tsx" ];
-          comment-tokens = "//";
-          indent.tab-width = 2;
-          indent.unit = "  ";
-          language-servers = [ "typescript-language-server" ];
-        }
+      [[language]]
+      comment-tokens = "//"
+      file-types = ["cs"]
+      language-servers = ["omnisharp"]
+      name = "csharp"
+      scope = "source.cs"
 
-        {
-          name = "php";
-          scope = "source.php";
-          file-types = [ "php" ];
-          comment-tokens = "//";
-          indent.tab-width = 4;
-          indent.unit = "    ";
-          language-servers = [ "intelephense" ];
-        }
+        [language.indent]
+        tab-width = 4
+        unit = "    "
 
-        {
-          name = "sql";
-          scope = "source.sql";
-          file-types = [ "sql" ];
-          comment-tokens = "--";
-          indent.tab-width = 4;
-          indent.unit = "    ";
-        }
+      [[language]]
+      comment-tokens = "#"
+      file-types = ["sh", "bash"]
+      language-servers = ["bash-language-server"]
+      name = "sh"
+      scope = "source.shell"
+      shebangs = ["sh", "bash"]
 
-        {
-          name = "go";
-          scope = "source.go";
-          file-types = [ "go" ];
-          comment-tokens = "//";
-          indent.tab-width = 4;
-          indent.unit = "    ";
-          language-servers = [ "gopls" ];
-        }
+        [language.indent]
+        tab-width = 4
+        unit = "    "
 
-        {
-          name = "swift";
-          scope = "source.swift";
-          file-types = [ "swift" ];
-          comment-tokens = "//";
-          indent.tab-width = 4;
-          indent.unit = "    ";
-          language-servers = [ "sourcekit-lsp" ];
-        }
+      [[language]]
+      comment-tokens = "<!--"
+      file-types = ["md", "markdown"]
+      name = "markdown"
+      scope = "text.md"
 
-        {
-          name = "kotlin";
-          scope = "source.kt";
-          file-types = [ "kt" "kts" ];
-          comment-tokens = "//";
-          indent.tab-width = 4;
-          indent.unit = "    ";
-          language-servers = [ "kotlin-language-server" ];
-        }
-      ];
-    };
+        [language.block-comment-tokens]
+        end = "-->"
+        start = "<!--"
+
+        [language.indent]
+        tab-width = 2
+        unit = "  "
+
+      [[language]]
+      comment-tokens = "//"
+      file-types = ["ts", "tsx"]
+      language-servers = ["typescript-language-server"]
+      name = "typescript"
+      scope = "source.ts"
+
+        [language.indent]
+        tab-width = 2
+        unit = "  "
+
+      [[language]]
+      comment-tokens = "//"
+      file-types = ["php"]
+      language-servers = ["intelephense"]
+      name = "php"
+      scope = "source.php"
+
+        [language.indent]
+        tab-width = 4
+        unit = "    "
+
+      [[language]]
+      comment-tokens = "--"
+      file-types = ["sql"]
+      name = "sql"
+      scope = "source.sql"
+
+        [language.indent]
+        tab-width = 4
+        unit = "    "
+
+      [[language]]
+      comment-tokens = "//"
+      file-types = ["go"]
+      language-servers = ["gopls"]
+      name = "go"
+      scope = "source.go"
+
+        [language.indent]
+        tab-width = 4
+        unit = "    "
+
+      [[language]]
+      comment-tokens = "//"
+      file-types = ["swift"]
+      language-servers = ["sourcekit-lsp"]
+      name = "swift"
+      scope = "source.swift"
+
+        [language.indent]
+        tab-width = 4
+        unit = "    "
+
+      [[language]]
+      comment-tokens = "//"
+      file-types = ["kt", "kts"]
+      language-servers = ["kotlin-language-server"]
+      name = "kotlin"
+      scope = "source.kt"
+
+        [language.indent]
+        tab-width = 4
+        unit = "    "
+
+      [language-server.bash-language-server]
+      args = ["start"]
+      command = "${pkgs.bash-language-server}/bin/bash-language-server"
+
+      [language-server.clangd]
+      args = []
+      command = "${pkgs.clang-tools}/bin/clangd"
+
+      [language-server.gopls]
+      args = []
+      command = "${pkgs.go-tools}/bin/gopls"
+
+      [language-server.jdtls]
+      args = []
+      command = "${pkgs.jdt-language-server}/bin/jdtls"
+
+      [language-server.kotlin-language-server]
+      args = []
+      command = "${pkgs.kotlin-language-server}/bin/kotlin-language-server"
+
+      [language-server.pyright]
+      args = ["--stdio"]
+      command = "${pkgs.pyright}/bin/pyright-langserver"
+
+      [language-server.rust-analyzer]
+      args = []
+      command = "${pkgs.rust-analyzer}/bin/rust-analyzer"
+
+      [language-server.sourcekit-lsp]
+      args = []
+      command = "${pkgs.swift}/bin/sourcekit-lsp"
+
+      [language-server.typescript-language-server]
+      args = ["--stdio", "--tsserver-path=${pkgs.nodePackages.typescript}/lib/node_modules/typescript/lib"]
+      command = "${pkgs.nodePackages.typescript-language-server}/bin/typescript-language-server"
+    '';
+
+    home.stateVersion = "24.11";
   };
 }

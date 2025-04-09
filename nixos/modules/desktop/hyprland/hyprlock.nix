@@ -93,6 +93,7 @@
         valign = bottom
       }
     '';
-  }
-  ;
+
+    home.stateVersion = "24.11";
+  };
 }

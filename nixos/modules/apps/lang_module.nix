@@ -86,6 +86,8 @@
       emacsPackages.lsp-julia
       julia
     ];
+
+    home.stateVersion = "24.11";
   };
 }
 

@@ -77,5 +77,7 @@
 
       dotDir = ".config/zsh";
     };
+
+    home.stateVersion = "24.11";
   };
 }

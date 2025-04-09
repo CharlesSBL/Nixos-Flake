@@ -56,5 +56,7 @@
         picture-uri-dark = "file:///home/sach/.wallpapers/d-w.webp";
       };
     };
+
+    home.stateVersion = "24.11";
   };
 }

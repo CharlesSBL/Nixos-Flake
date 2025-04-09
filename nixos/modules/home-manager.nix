@@ -16,8 +16,6 @@
         libreoffice
         whitesur-icon-theme
       ];
-
-      stateVersion = "24.11";
     };
 
     # Git configuration
@@ -27,5 +25,6 @@
       userEmail = "karl.sobolewski@outlook.com";
     };
 
+    home.stateVersion = "24.11";
   };
 }

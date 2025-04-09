@@ -29,5 +29,7 @@
       # enableNvidiaPatches = false;
       systemd.enable = true;
     };
+
+    home.stateVersion = "24.11";
   };
 }
