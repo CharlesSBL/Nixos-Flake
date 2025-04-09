@@ -23,6 +23,8 @@
         stop-gui = "sudo systemctl stop gdm.service";
         to-console = "sudo systemctl isolate multi-user.target";
         to-gui = "sudo systemctl isolate graphical.target";
+
+        sp = "superfile";
       };
 
       plugins = [
