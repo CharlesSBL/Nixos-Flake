@@ -28,7 +28,7 @@ injection-regex = "rust"
 indent = { tab-width = 4, unit = "    " }
 language-servers = ["rust-analyzer"]
 formatter = { command = "/etc/profiles/per-user/sach/bin/rustfmt", args = [] }
-roots = [ "Cargo.toml", "Cargo.lock"]
+roots = ["Cargo.toml", "Cargo.lock"]
 
 # Language Server Configurations
 [language-server.rust-analyzer]
@@ -61,6 +61,12 @@ language-servers = ["clangd"]
 formatter = { command = "/etc/profiles/per-user/sach/bin/clang-format", args = [
 ] }
 
+[language-server.clangd]
+command = "/etc/profiles/per-user/sach/bin/clangd"
+args = []
+binary.path = "/etc/profiles/per-user/sach/bin/clangd"
+
+
 # Java
 [[language]]
 name = "java"
@@ -70,6 +76,12 @@ indent = { tab-width = 4, unit = "    " }
 language-servers = ["jdtls"]
 formatter = { command = "/etc/profiles/per-user/sach/bin/google-java-format", args = [
 ] }
+
+[language-server.jdtls]
+command = "/etc/profiles/per-user/sach/bin/jdtls"
+args = []
+binary.path = "/etc/profiles/per-user/sach/bin/jdtls"
+
 
 # JavaScript
 [[language]]
@@ -131,6 +143,10 @@ formatter = { command = "/etc/profiles/per-user/sach/bin/prettier", args = [
     "csharp",
 ] }
 
+[language-server.omnisharp]
+command = "/etc/profiles/per-user/sach/bin/omnisharp"
+
+
 # Python
 [[language]]
 name = "python"
@@ -139,6 +155,12 @@ file-types = ["py"]
 indent = { tab-width = 4, unit = "    " }
 language-servers = ["pyright"]
 formatter = { command = "/etc/profiles/per-user/sach/bin/black", args = [] }
+
+[language-server.pyright]
+command = "/etc/profiles/per-user/sach/bin/pyright"
+args = ["--stdio"]
+binary.path = "/etc/profiles/per-user/sach/bin/pyright"
+
 
 # Julia
 [[language]]
@@ -152,6 +174,11 @@ formatter = { command = "/etc/profiles/per-user/sach/bin/prettier", args = [
     "julia",
 ] }
 
+
+[language-server.julia-lsp]
+command = "/etc/profiles/per-user/sach/bin/julia-lsp"
+
+
 # Shell (sh)
 [[language]]
 name = "sh"
@@ -164,6 +191,11 @@ formatter = { command = "/etc/profiles/per-user/sach/bin/prettier", args = [
     "--parser",
     "sh",
 ] }
+
+[language-server.bash-language-server]
+command = "/etc/profiles/per-user/sach/bin/bash-language-server"
+args = ["start"]
+
 
 # Markdown (md)
 [[language]]
@@ -185,6 +217,11 @@ formatter = { command = "/etc/profiles/per-user/sach/bin/prettier", args = [
     "typescript",
 ] }
 
+[language-server.typescript-language-server]
+command = "/etc/profiles/per-user/sach/bin/typescript-language-server"
+args = ["--stdio"]
+binary.path = "/etc/profiles/per-user/sach/bin/typescript-language-server"
+
 # PHP
 [[language]]
 name = "php"
@@ -192,10 +229,12 @@ scope = "source.php"
 file-types = ["php"]
 indent = { tab-width = 4, unit = "    " }
 language-servers = ["intelephense"]
-formatter = { command = "/etc/profiles/per-user/sach/bin/prettier", args = [
-    "--parser",
-    "php",
-] }
+
+
+[language-server.intelephense]
+command = "/etc/profiles/per-user/sach/bin/intelephense"
+args = ["--stdio"]
+
 
 # SQL
 [[language]]
@@ -220,6 +259,10 @@ formatter = { command = "/etc/profiles/per-user/sach/bin/prettier", args = [
     "go",
 ] }
 
+[language-server.gopls]
+command = "/etc/profiles/per-user/sach/bin/gopls"
+
+
 # Swift
 [[language]]
 name = "swift"
@@ -231,6 +274,11 @@ formatter = { command = "/etc/profiles/per-user/sach/bin/prettier", args = [
     "--parser",
     "swift",
 ] }
+
+
+[language-server.sourcekit-lsp]
+command = "/etc/profiles/per-user/sach/bin/sourcekit-lsp"
+
 
 # Kotlin
 [[language]]
@@ -244,46 +292,6 @@ formatter = { command = "/etc/profiles/per-user/sach/bin/prettier", args = [
     "kotlin",
 ] }
 
-
-[language-server.clangd]
-command = "/etc/profiles/per-user/sach/bin/clangd"
-args = []
-binary.path = "/etc/profiles/per-user/sach/bin/clangd"
-
-[language-server.jdtls]
-command = "/etc/profiles/per-user/sach/bin/jdtls"
-args = []
-binary.path = "/etc/profiles/per-user/sach/bin/jdtls"
-
-[language-server.typescript-language-server]
-command = "/etc/profiles/per-user/sach/bin/typescript-language-server"
-args = ["--stdio"]
-binary.path = "/etc/profiles/per-user/sach/bin/typescript-language-server"
-
-[language-server.omnisharp]
-command = "/etc/profiles/per-user/sach/bin/omnisharp"
-
-[language-server.pyright]
-command = "/etc/profiles/per-user/sach/bin/pyright"
-args = ["--stdio"]
-binary.path = "/etc/profiles/per-user/sach/bin/pyright"
-
-[language-server.julia-lsp]
-command = "/etc/profiles/per-user/sach/bin/julia-lsp"
-
-[language-server.bash-language-server]
-command = "/etc/profiles/per-user/sach/bin/bash-language-server"
-args = ["start"]
-
-[language-server.intelephense]
-command = "/etc/profiles/per-user/sach/bin/intelephense"
-args = ["--stdio"]
-
-[language-server.gopls]
-command = "/etc/profiles/per-user/sach/bin/gopls"
-
-[language-server.sourcekit-lsp]
-command = "/etc/profiles/per-user/sach/bin/sourcekit-lsp"
 
 [language-server.kotlin-language-server]
 command = "/etc/profiles/per-user/sach/bin/kotlin-language-server"
