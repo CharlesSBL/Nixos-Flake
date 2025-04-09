@@ -34,6 +34,7 @@
       dotnet-sdk
       mono # open-source dotnet
       csharp-ls # lang server
+      emacsPackages.omnisharp # lang server
 
       # python
       black # formatter

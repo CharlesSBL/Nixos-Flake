@@ -30,8 +30,8 @@
   hardware.sensor.iio.enable = true;
 
   # System services configuration
-  # systemd.services = {
-  # 		"getty@tty1".enable = false;
-  # 		"autovt@tty1".enable = false;
-  # };
+  systemd.services = {
+    "getty@tty1".enable = false;
+    "autovt@tty1".enable = false;
+  };
 }

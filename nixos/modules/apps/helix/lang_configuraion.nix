@@ -1,269 +1,266 @@
-{ pkgs, ... }:
-
-{
+{ pkgs, ... }: {
   home-manager.users.sach = { pkgs, ... }: {
-    # TODO: [ CharlesSBL ]
-    # make separate file for formatters and languages
 
-    xdg.configFile."helix/languages.toml".text = ''
-      # Note: This configuration assumes you have the necessary language servers
-      # installed and available in your $PATH.
+    programs.helix.languages = {
+      # Include jdt-language-server in the environment
+      extraPackages = [
+        pkgs.jdt-language-server
+      ];
 
-      # nix
-      [[language]]
-      name = "nix"
-      formatter = { command = "nixfmt", args = [] }
+      # Language server configurations
+      language-server.rust-analyzer = {
+        command = "${pkgs.rust-analyzer}/bin/rust-analyzer";
+        args = [ ];
+      };
 
-      # Rust
-      [[language]]
-      name = "rust"
-      scope = "source.rust"
-      file-types = ["rs"]
-      comment-tokens = "//"
-      indent = { tab-width = 4, unit = "    " }
-      language-servers = ["rust-analyzer"]
-      formatter = { command = "rustfmt", args = [] }
+      language-server.clangd = {
+        command = "${pkgs.clang-tools}/bin/clangd";
+        args = [ ];
+      };
 
-      # C
-      [[language]]
-      name = "c"
-      scope = "source.c"
-      file-types = ["c", "h"]
-      comment-tokens = "//"
-      indent = { tab-width = 4, unit = "    " }
-      language-servers = ["clangd"]
-      formatter = { command = "clang-format", args = [] }
+      language-server.jdtls = {
+        command = "${pkgs.jdt-language-server}/bin/jdtls";
+        args = [ ];
+      };
 
-      # C++
-      [[language]]
-      name = "cpp"
-      scope = "source.cpp"
-      file-types = ["cpp", "hpp", "cxx", "hxx"]
-      comment-tokens = "//"
-      indent = { tab-width = 4, unit = "    " }
-      language-servers = ["clangd"]
-      formatter = { command = "clang-format", args = [] }
+      language-server.typescript-language-server = with pkgs.nodePackages; {
+        command = "${typescript-language-server}/bin/typescript-language-server";
+        args = [ "--stdio" "--tsserver-path=${typescript}/lib/node_modules/typescript/lib" ];
+      };
 
-      # Java
-      [[language]]
-      name = "java"
-      scope = "source.java"
-      file-types = ["java"]
-      comment-tokens = "//"
-      indent = { tab-width = 4, unit = "    " }
-      language-servers = ["jdtls"]
-      formatter = { command = "google-java-format", args = [] }
+      language-server.omnisharp = {
+        command = "${pkgs.emacsPackages.omnisharp}/bin/omnisharp";
+        args = [ ];
+      };
 
-      # JavaScript
-      [[language]]
-      name = "javascript"
-      scope = "source.js"
-      file-types = ["js", "jsx"]
-      comment-tokens = "//"
-      indent = { tab-width = 2, unit = "  " }
-      language-servers = ["typescript-language-server"]
-      formatter = { command = "prettier", args = ["--parser", "javascript"] }
+      language-server.pyright = {
+        command = "${pkgs.pyright}/bin/pyright-langserver";
+        args = [ "--stdio" ];
+      };
 
-      # HTML
-      [[language]]
-      name = "html"
-      scope = "text.html"
-      file-types = ["html", "htm"]
-      comment-tokens = "<!--"
-      block-comment-tokens = { start = "<!--", end = "-->" }
-      indent = { tab-width = 2, unit = "  " }
-      formatter = { command = "prettier", args = ["--parser", "html"] }
+      language-server.julia-lsp = {
+        command = "${pkgs.emacsPackages.lsp-julia}/bin/julia-lsp";
+        args = [ ];
+      };
 
-      # CSS
-      [[language]]
-      name = "css"
-      scope = "source.css"
-      file-types = ["css"]
-      comment-tokens = "/*"
-      block-comment-tokens = { start = "/*", end = "*/" }
-      indent = { tab-width = 2, unit = "  " }
-      formatter = { command = "prettier", args = ["--parser", "css"] }
+      language-server.bash-language-server = {
+        command = "${pkgs.bash-language-server}/bin/bash-language-server";
+        args = [ "start" ];
+      };
 
-      # React (JSX)
-      [[language]]
-      name = "react"
-      scope = "source.jsx"
-      file-types = ["jsx"]
-      comment-tokens = "//"
-      indent = { tab-width = 2, unit = "  " }
-      language-servers = ["typescript-language-server"]
-      formatter = { command = "prettier", args = ["--parser", "jsx"] }
+      language-server.intelephense = {
+        command = "${pkgs.intelephense}/bin/intelephense";
+        args = [ "--stdio" ];
+      };
 
-      # C#
-      [[language]]
-      name = "csharp"
-      scope = "source.cs"
-      file-types = ["cs"]
-      comment-tokens = "//"
-      indent = { tab-width = 4, unit = "    " }
-      language-servers = ["omnisharp"]
-      formatter = { command = "prettier", args = ["--parser", "csharp"] }
+      language-server.gopls = {
+        command = "${pkgs.go-tools}/bin/gopls";
+        args = [ ];
+      };
 
-      # Python
-      [[language]]
-      name = "python"
-      scope = "source.python"
-      file-types = ["py"]
-      comment-tokens = "#"
-      indent = { tab-width = 4, unit = "    " }
-      language-servers = ["pyright"]
-      formatter = { command = "black", args = [] }
+      language-server.sourcekit-lsp = {
+        command = "${pkgs.swift}/bin/sourcekit-lsp";
+        args = [ ];
+      };
 
-      # Julia
-      [[language]]
-      name = "julia"
-      scope = "source.julia"
-      file-types = ["jl"]
-      comment-tokens = "#"
-      indent = { tab-width = 4, unit = "    " }
-      language-servers = ["julia-lsp"]
-      formatter = { command = "prettier", args = ["--parser", "julia"] }
+      language-server.kotlin-language-server = {
+        command = "${pkgs.kotlin-language-server}/bin/kotlin-language-server";
+        args = [ ];
+      };
 
-      # Shell (sh)
-      [[language]]
-      name = "sh"
-      scope = "source.shell"
-      file-types = ["sh", "bash"]
-      shebangs = ["sh", "bash"]
-      comment-tokens = "#"
-      indent = { tab-width = 4, unit = "    " }
-      language-servers = ["bash-language-server"]
-      formatter = { command = "prettier", args = ["--parser", "sh"] }
+      # Language-specific configurations
+      language = [
+        # Rust
+        {
+          name = "rust";
+          scope = "source.rust";
+          file-types = [ "rs" ];
+          comment-tokens = "//";
+          indent = { tab-width = 4; unit = "    "; };
+          language-servers = [ "rust-analyzer" ];
+          auto-format = false;
+        }
 
-      # Markdown (md)
-      [[language]]
-      name = "markdown"
-      scope = "text.md"
-      file-types = ["md", "markdown"]
-      comment-tokens = "<!--"
-      block-comment-tokens = { start = "<!--", end = "-->" }
-      indent = { tab-width = 2, unit = "  " }
+        # C
+        {
+          name = "c";
+          scope = "source.c";
+          file-types = [ "c" "h" ];
+          comment-tokens = "//";
+          indent = { tab-width = 4; unit = "    "; };
+          language-servers = [ "clangd" ];
+        }
 
-      # TypeScript
-      [[language]]
-      name = "typescript"
-      scope = "source.ts"
-      file-types = ["ts", "tsx"]
-      comment-tokens = "//"
-      indent = { tab-width = 2, unit = "  " }
-      language-servers = ["typescript-language-server"]
-      formatter = { command = "prettier", args = ["--parser", "typescript"] }
+        # C++
+        {
+          name = "cpp";
+          scope = "source.cpp";
+          file-types = [ "cpp" "hpp" "cxx" "hxx" ];
+          comment-tokens = "//";
+          indent = { tab-width = 4; unit = "    "; };
+          language-servers = [ "clangd" ];
+        }
 
-      # PHP
-      [[language]]
-      name = "php"
-      scope = "source.php"
-      file-types = ["php"]
-      comment-tokens = "//"
-      indent = { tab-width = 4, unit = "    " }
-      language-servers = ["intelephense"]
-      formatter = { command = "prettier", args = ["--parser", "php"] }
+        # Java
+        {
+          name = "java";
+          scope = "source.java";
+          file-types = [ "java" ];
+          comment-tokens = "//";
+          indent = { tab-width = 4; unit = "    "; };
+          language-servers = [ "jdtls" ];
+        }
 
-      # SQL
-      [[language]]
-      name = "sql"
-      scope = "source.sql"
-      file-types = ["sql"]
-      comment-tokens = "--"
-      indent = { tab-width = 4, unit = "    " }
-      formatter = { command = "prettier", args = ["--parser", "sql"] }
+        # JavaScript
+        {
+          name = "javascript";
+          scope = "source.js";
+          file-types = [ "js" "jsx" ];
+          comment-tokens = "//";
+          indent = { tab-width = 2; unit = "  "; };
+          language-servers = [ "typescript-language-server" ];
+        }
 
-      # Go
-      [[language]]
-      name = "go"
-      scope = "source.go"
-      file-types = ["go"]
-      comment-tokens = "//"
-      indent = { tab-width = 4, unit = "    " }
-      language-servers = ["gopls"]
-      formatter = { command = "prettier", args = ["--parser", "go"] }
+        # HTML
+        {
+          name = "html";
+          scope = "text.html";
+          file-types = [ "html" "htm" ];
+          comment-tokens = "<!--";
+          block-comment-tokens = { start = "<!--"; end = "-->"; };
+          indent = { tab-width = 2; unit = "  "; };
+        }
 
-      # Swift
-      [[language]]
-      name = "swift"
-      scope = "source.swift"
-      file-types = ["swift"]
-      comment-tokens = "//"
-      indent = { tab-width = 4, unit = "    " }
-      language-servers = ["sourcekit-lsp"]
-      formatter = { command = "prettier", args = ["--parser", "swift"] }
+        # CSS
+        {
+          name = "css";
+          scope = "source.css";
+          file-types = [ "css" ];
+          comment-tokens = "/*";
+          block-comment-tokens = { start = "/*"; end = "*/"; };
+          indent = { tab-width = 2; unit = "  "; };
+        }
 
-      # Kotlin
-      [[language]]
-      name = "kotlin"
-      scope = "source.kt"
-      file-types = ["kt", "kts"]
-      comment-tokens = "//"
-      indent = { tab-width = 4, unit = "    " }
-      language-servers = ["kotlin-language-server"]
-      formatter = { command = "prettier", args = ["--parser", "kotlin"] }
+        # React (JSX)
+        {
+          name = "react";
+          scope = "source.jsx";
+          file-types = [ "jsx" ];
+          comment-tokens = "//";
+          indent = { tab-width = 2; unit = "  "; };
+          language-servers = [ "typescript-language-server" ];
+        }
 
+        # C#
+        {
+          name = "csharp";
+          scope = "source.cs";
+          file-types = [ "cs" ];
+          comment-tokens = "//";
+          indent = { tab-width = 4; unit = "    "; };
+          language-servers = [ "omnisharp" ];
+        }
 
-      # Language Server Configurations
-      [language-server.rust-analyzer]
-      command = "/etc/profiles/per-user/sach/bin/rust-analyzer"
-      args = []
-      binary.path = "/etc/profiles/per-user/sach/bin/rust-analyzer"
-      config.check.command = "clippy"
-      config.cargo.features = "all"
+        # Python
+        {
+          name = "python";
+          scope = "source.python";
+          file-types = [ "py" ];
+          comment-tokens = "#";
+          indent = { tab-width = 4; unit = "    "; };
+          language-servers = [ "pyright" ];
+        }
 
-      [language-server.clangd]
-      command = "/etc/profiles/per-user/sach/bin/clangd"
-      args = []
-      binary.path = "/etc/profiles/per-user/sach/bin/clangd"
+        # Julia
+        {
+          name = "julia";
+          scope = "source.julia";
+          file-types = [ "jl" ];
+          comment-tokens = "#";
+          indent = { tab-width = 4; unit = "    "; };
+          language-servers = [ "julia-lsp" ];
+        }
 
-      [language-server.jdtls]
-      command = "/etc/profiles/per-user/sach/bin/jdtls"
-      args = []
-      binary.path = "/etc/profiles/per-user/sach/bin/jdtls"
+        # Shell (sh/bash)
+        {
+          name = "sh";
+          scope = "source.shell";
+          file-types = [ "sh" "bash" ];
+          shebangs = [ "sh" "bash" ];
+          comment-tokens = "#";
+          indent = { tab-width = 4; unit = "    "; };
+          language-servers = [ "bash-language-server" ];
+        }
 
-      [language-server.typescript-language-server]
-      command = "/etc/profiles/per-user/sach/bin/typescript-language-server"
-      args = ["--stdio"]
-      binary.path = "/etc/profiles/per-user/sach/bin/typescript-language-server"
+        # Markdown
+        {
+          name = "markdown";
+          scope = "text.md";
+          file-types = [ "md" "markdown" ];
+          comment-tokens = "<!--";
+          block-comment-tokens = { start = "<!--"; end = "-->"; };
+          indent = { tab-width = 2; unit = "  "; };
+        }
 
-      [language-server.omnisharp]
-      command = "omnisharp"
+        # TypeScript
+        {
+          name = "typescript";
+          scope = "source.ts";
+          file-types = [ "ts" "tsx" ];
+          comment-tokens = "//";
+          indent = { tab-width = 2; unit = "  "; };
+          language-servers = [ "typescript-language-server" ];
+        }
 
-      [language-server.pyright]
-      command = "/etc/profiles/per-user/sach/bin/pyright"
-      args = ["--stdio"]
-      binary.path = "/etc/profiles/per-user/sach/bin/pyright"
+        # PHP
+        {
+          name = "php";
+          scope = "source.php";
+          file-types = [ "php" ];
+          comment-tokens = "//";
+          indent = { tab-width = 4; unit = "    "; };
+          language-servers = [ "intelephense" ];
+        }
 
-      [language-server.julia-lsp]
-      command = "julia-lsp"
+        # SQL
+        {
+          name = "sql";
+          scope = "source.sql";
+          file-types = [ "sql" ];
+          comment-tokens = "--";
+          indent = { tab-width = 4; unit = "    "; };
+        }
 
-      [language-server.bash-language-server]
-      command = "bash-language-server"
-      args = ["start"]
+        # Go
+        {
+          name = "go";
+          scope = "source.go";
+          file-types = [ "go" ];
+          comment-tokens = "//";
+          indent = { tab-width = 4; unit = "    "; };
+          language-servers = [ "gopls" ];
+        }
 
-      [language-server.intelephense]
-      command = "intelephense"
-      args = ["--stdio"]
+        # Swift
+        {
+          name = "swift";
+          scope = "source.swift";
+          file-types = [ "swift" ];
+          comment-tokens = "//";
+          indent = { tab-width = 4; unit = "    "; };
+          language-servers = [ "sourcekit-lsp" ];
+        }
 
-      [language-server.gopls]
-      command = "gopls"
-
-      [language-server.sourcekit-lsp]
-      command = "sourcekit-lsp"
-
-      [language-server.kotlin-language-server]
-      command = "kotlin-language-server"
-
-      [language-server.nil]
-      command = "/etc/profiles/per-user/sach/bin/nil"
-      binary.path = "/etc/profiles/per-user/sach/bin/nil"
-      initialization_options.formatting.command = ["/etc/profiles/per-user/sach/bin/nixpkgs-fmt"]
-
-      [language-server.nixd]
-      command = "/etc/profiles/per-user/sach/bin/nixd"
-      binary.path = "/etc/profiles/per-user/sach/bin/nixd"
-      initialization_options.formatting.command = ["/etc/profiles/per-user/sach/bin/nixpkgs-fmt"]
-    '';
+        # Kotlin
+        {
+          name = "kotlin";
+          scope = "source.kt";
+          file-types = [ "kt" "kts" ];
+          comment-tokens = "//";
+          indent = { tab-width = 4; unit = "    "; };
+          language-servers = [ "kotlin-language-server" ];
+        }
+      ];
+    };
   };
 }
