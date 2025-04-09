@@ -1,6 +1,6 @@
 { ... }: {
   imports = [
     ./helix.nix
-    ./lang_configuraion.nix
+    ./lang_configuration.nix
   ];
 }

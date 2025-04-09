@@ -74,7 +74,7 @@
       tree-sitter
 
       # bash
-      bash
+      # bash
       bash-language-server
 
       # kotlin
