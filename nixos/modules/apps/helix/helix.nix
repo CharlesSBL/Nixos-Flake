@@ -2,8 +2,6 @@
 
 {
   home-manager.users.sach = { pkgs, ... }: {
-
-
     programs.helix = {
       enable = true;
       settings = {

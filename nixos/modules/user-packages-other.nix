@@ -2,6 +2,7 @@
 
 {
   users.users.sach.packages = with pkgs; [
+    browsh
     # openvpn  # Open source VPN client
 
     # Desktop Environment
