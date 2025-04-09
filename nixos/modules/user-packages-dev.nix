@@ -4,21 +4,6 @@
 {
   users.users.sach.packages = with pkgs;
     let
-      # Language servers and tools
-      languageServers = [
-
-      ];
-
-      # Programming languages and runtimes
-      languages = [
-
-      ];
-
-      # Build tools and debuggers
-      buildTools = [
-
-      ];
-
       # Version control
       vcsTools = [
         git # Distributed version control system
@@ -36,5 +21,5 @@
       ];
 
     in
-    languageServers ++ languages ++ buildTools ++ vcsTools ++ editors;
+    vcsTools ++ editors;
 }

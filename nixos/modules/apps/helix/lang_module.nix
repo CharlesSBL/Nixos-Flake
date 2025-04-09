@@ -3,64 +3,103 @@
 {
   home-manager.users.sach = { pkgs, ... }: {
     home.packages = with pkgs; [
-      # Formatters and linters
+      # nix
       nixfmt-rfc-style
-      nodePackages.prettier
-      clang-tools
-      google-java-format
-      python312Packages.black
       nixpkgs-fmt
-
-      # Build tools and debuggers
-      cmake
-      gnumake
-      meson
-      ninja
-      lldb
-      gdb
-      valgrind
-      doxygen
-
-      # Compilers and language toolchains
-      clang
-      gcc
-      gpp
-      openjdk
-      dotnet-sdk
-      python314
-      nodejs_23
-      julia
-      php
-      go
-      swift
-      kotlin
-
-      # Language servers
       nixd
       nil
-      typescript-language-server
-      ccls
-      jdt-language-server
-      pyright
 
-      # Package managers and dependencies
+      # js
+      vscode-langservers-extracted # html/css server
+      typescript-language-server
+      nodePackages.prettier # formater
+      typescript
+      nodejs_23
       pnpm
-      npm
-      yarn
-      python3Packages.pip
-      boost
-      glibc
+      eslint
+
+      # c/cpp
+      llvmPackages_19.clang-unwrapped
       libgcc
+      lldb # debugger
+      ccls # lang server
+
+      # java
+      jdt-language-server # lang server
+      google-java-format # formatter
+      zulu8
+      gradle
+
+      # C-sharp
+      dotnet-sdk
+      mono # open-source dotnet
+      csharp-ls # lang server
+
+      # python
+      black # formatter
+      python312
+      pyright # type checker
+      python312Packages.pygls # lang server
+      python312Packages.pip # pip
+      isort
+
+      # go
+      go
+      gopls # server
+      golines
+
+      # php
+      php
+      phpactor
+      intelephense
+      vscode-extensions.xdebug.php-debug
+
+      # swift
+      swift
+      sourcekit-lsp # lang server
+      vscode-extensions.sswg.swift-lang
 
       # Databases
       sqlite
       postgresql
-      mysql
+      mariadb
+      # mysql84
 
-      # System utilities
+      # other
+      yarn
+      pandoc # Conversion formats
+      emmet-ls
+      markdownlint-cli
+      tree-sitter
+
+      # bash
       bash
-      coreutils
-      pandoc
+      bash-language-server
+
+      # kotlin
+      kotlin-language-server
+      kotlin-native # compile to binary code
+      kotlin
+
+      # julia
+      emacsPackages.lsp-julia
+      julia
     ];
   };
 }
+
+# Package managers and dependencies
+# boost
+# glibc
+# libgcc
+# System utilities
+# coreutils
+#
+# Build tools and debuggers
+# gnumake
+# meson
+# ninja
+# lldb
+# gdb
+# valgrind
+# doxygen
