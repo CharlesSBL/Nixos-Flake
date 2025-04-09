@@ -1,0 +1,289 @@
+# nix
+[[language]]
+name = "nix"
+formatter = { command = "/etc/profiles/per-user/sach/bin/nixfmt", args = [] }
+
+[language-server.nil]
+command = "/etc/profiles/per-user/sach/bin/nil"
+binary.path = "/etc/profiles/per-user/sach/bin/nil"
+initialization_options.formatting.command = [
+    "/etc/profiles/per-user/sach/bin/nixpkgs-fmt",
+]
+
+[language-server.nixd]
+command = "/etc/profiles/per-user/sach/bin/nixd"
+binary.path = "/etc/profiles/per-user/sach/bin/nixd"
+initialization_options.formatting.command = [
+    "/etc/profiles/per-user/sach/bin/nixpkgs-fmt",
+]
+
+
+# Rust
+[[language]]
+name = "rust"
+scope = "source.rust"
+auto-format = true
+file-types = ["rs"]
+injection-regex = "rust"
+indent = { tab-width = 4, unit = "    " }
+language-servers = ["rust-analyzer"]
+formatter = { command = "/etc/profiles/per-user/sach/bin/rustfmt", args = [] }
+roots = [ "Cargo.toml", "Cargo.lock"]
+
+# Language Server Configurations
+[language-server.rust-analyzer]
+command = "/etc/profiles/per-user/sach/bin/rust-analyzer"
+binary.path = "/etc/profiles/per-user/sach/bin/rust-analyzer"
+config.check.command = "clippy"
+config.cargo.features = "all"
+
+[[grammar]]
+name = "rust"
+source = "/etc/profiles/per-user/sach/bin/tree-sitter"
+
+# C
+[[language]]
+name = "c"
+scope = "source.c"
+file-types = ["c", "h"]
+indent = { tab-width = 4, unit = "    " }
+language-servers = ["clangd"]
+formatter = { command = "/etc/profiles/per-user/sach/bin/clang-format", args = [
+] }
+
+# C++
+[[language]]
+name = "cpp"
+scope = "source.cpp"
+file-types = ["cpp", "hpp", "cxx", "hxx"]
+indent = { tab-width = 4, unit = "    " }
+language-servers = ["clangd"]
+formatter = { command = "/etc/profiles/per-user/sach/bin/clang-format", args = [
+] }
+
+# Java
+[[language]]
+name = "java"
+scope = "source.java"
+file-types = ["java"]
+indent = { tab-width = 4, unit = "    " }
+language-servers = ["jdtls"]
+formatter = { command = "/etc/profiles/per-user/sach/bin/google-java-format", args = [
+] }
+
+# JavaScript
+[[language]]
+name = "javascript"
+scope = "source.js"
+file-types = ["js", "jsx"]
+indent = { tab-width = 2, unit = "  " }
+language-servers = ["typescript-language-server"]
+formatter = { command = "/etc/profiles/per-user/sach/bin/prettier", args = [
+    "--parser",
+    "javascript",
+] }
+
+# HTML
+[[language]]
+name = "html"
+scope = "text.html"
+file-types = ["html", "htm"]
+block-comment-tokens = { start = "<!--", end = "-->" }
+indent = { tab-width = 2, unit = "  " }
+formatter = { command = "/etc/profiles/per-user/sach/bin/prettier", args = [
+    "--parser",
+    "html",
+] }
+
+# CSS
+[[language]]
+name = "css"
+scope = "source.css"
+file-types = ["css"]
+block-comment-tokens = { start = "/*", end = "*/" }
+indent = { tab-width = 2, unit = "  " }
+formatter = { command = "/etc/profiles/per-user/sach/bin/prettier", args = [
+    "--parser",
+    "css",
+] }
+
+# React (JSX)
+[[language]]
+name = "react"
+scope = "source.jsx"
+file-types = ["jsx"]
+indent = { tab-width = 2, unit = "  " }
+language-servers = ["typescript-language-server"]
+formatter = { command = "/etc/profiles/per-user/sach/bin/prettier", args = [
+    "--parser",
+    "jsx",
+] }
+
+# C#
+[[language]]
+name = "csharp"
+scope = "source.cs"
+file-types = ["cs"]
+indent = { tab-width = 4, unit = "    " }
+language-servers = ["omnisharp"]
+formatter = { command = "/etc/profiles/per-user/sach/bin/prettier", args = [
+    "--parser",
+    "csharp",
+] }
+
+# Python
+[[language]]
+name = "python"
+scope = "source.python"
+file-types = ["py"]
+indent = { tab-width = 4, unit = "    " }
+language-servers = ["pyright"]
+formatter = { command = "/etc/profiles/per-user/sach/bin/black", args = [] }
+
+# Julia
+[[language]]
+name = "julia"
+scope = "source.julia"
+file-types = ["jl"]
+indent = { tab-width = 4, unit = "    " }
+language-servers = ["julia-lsp"]
+formatter = { command = "/etc/profiles/per-user/sach/bin/prettier", args = [
+    "--parser",
+    "julia",
+] }
+
+# Shell (sh)
+[[language]]
+name = "sh"
+scope = "source.shell"
+file-types = ["sh", "bash"]
+shebangs = ["sh", "bash"]
+indent = { tab-width = 4, unit = "    " }
+language-servers = ["bash-language-server"]
+formatter = { command = "/etc/profiles/per-user/sach/bin/prettier", args = [
+    "--parser",
+    "sh",
+] }
+
+# Markdown (md)
+[[language]]
+name = "markdown"
+scope = "text.md"
+file-types = ["md", "markdown"]
+block-comment-tokens = { start = "<!--", end = "-->" }
+indent = { tab-width = 2, unit = "  " }
+
+# TypeScript
+[[language]]
+name = "typescript"
+scope = "source.ts"
+file-types = ["ts", "tsx"]
+indent = { tab-width = 2, unit = "  " }
+language-servers = ["typescript-language-server"]
+formatter = { command = "/etc/profiles/per-user/sach/bin/prettier", args = [
+    "--parser",
+    "typescript",
+] }
+
+# PHP
+[[language]]
+name = "php"
+scope = "source.php"
+file-types = ["php"]
+indent = { tab-width = 4, unit = "    " }
+language-servers = ["intelephense"]
+formatter = { command = "/etc/profiles/per-user/sach/bin/prettier", args = [
+    "--parser",
+    "php",
+] }
+
+# SQL
+[[language]]
+name = "sql"
+scope = "source.sql"
+file-types = ["sql"]
+indent = { tab-width = 4, unit = "    " }
+formatter = { command = "/etc/profiles/per-user/sach/bin/prettier", args = [
+    "--parser",
+    "sql",
+] }
+
+# Go
+[[language]]
+name = "go"
+scope = "source.go"
+file-types = ["go"]
+indent = { tab-width = 4, unit = "    " }
+language-servers = ["gopls"]
+formatter = { command = "/etc/profiles/per-user/sach/bin/prettier", args = [
+    "--parser",
+    "go",
+] }
+
+# Swift
+[[language]]
+name = "swift"
+scope = "source.swift"
+file-types = ["swift"]
+indent = { tab-width = 4, unit = "    " }
+language-servers = ["sourcekit-lsp"]
+formatter = { command = "/etc/profiles/per-user/sach/bin/prettier", args = [
+    "--parser",
+    "swift",
+] }
+
+# Kotlin
+[[language]]
+name = "kotlin"
+scope = "source.kt"
+file-types = ["kt", "kts"]
+indent = { tab-width = 4, unit = "    " }
+language-servers = ["kotlin-language-server"]
+formatter = { command = "/etc/profiles/per-user/sach/bin/prettier", args = [
+    "--parser",
+    "kotlin",
+] }
+
+
+[language-server.clangd]
+command = "/etc/profiles/per-user/sach/bin/clangd"
+args = []
+binary.path = "/etc/profiles/per-user/sach/bin/clangd"
+
+[language-server.jdtls]
+command = "/etc/profiles/per-user/sach/bin/jdtls"
+args = []
+binary.path = "/etc/profiles/per-user/sach/bin/jdtls"
+
+[language-server.typescript-language-server]
+command = "/etc/profiles/per-user/sach/bin/typescript-language-server"
+args = ["--stdio"]
+binary.path = "/etc/profiles/per-user/sach/bin/typescript-language-server"
+
+[language-server.omnisharp]
+command = "/etc/profiles/per-user/sach/bin/omnisharp"
+
+[language-server.pyright]
+command = "/etc/profiles/per-user/sach/bin/pyright"
+args = ["--stdio"]
+binary.path = "/etc/profiles/per-user/sach/bin/pyright"
+
+[language-server.julia-lsp]
+command = "/etc/profiles/per-user/sach/bin/julia-lsp"
+
+[language-server.bash-language-server]
+command = "/etc/profiles/per-user/sach/bin/bash-language-server"
+args = ["start"]
+
+[language-server.intelephense]
+command = "/etc/profiles/per-user/sach/bin/intelephense"
+args = ["--stdio"]
+
+[language-server.gopls]
+command = "/etc/profiles/per-user/sach/bin/gopls"
+
+[language-server.sourcekit-lsp]
+command = "/etc/profiles/per-user/sach/bin/sourcekit-lsp"
+
+[language-server.kotlin-language-server]
+command = "/etc/profiles/per-user/sach/bin/kotlin-language-server"

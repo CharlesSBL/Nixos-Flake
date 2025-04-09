@@ -1,93 +1,96 @@
 { pkgs, ... }:
 
 {
+
   home-manager.users.sach = { pkgs, ... }: {
-    home.packages = with pkgs; [
-      # nix
-      nixfmt-rfc-style
-      nixpkgs-fmt
-      nixd
-      nil
 
-      # js
-      vscode-langservers-extracted # html/css server
-      typescript-language-server
-      nodePackages.prettier # formater
-      typescript
-      nodejs_23
-      pnpm
-      eslint
+    home = {
+      packages = with pkgs; [
+        # nix
+        nixfmt-rfc-style
+        nixpkgs-fmt
+        nixd
+        nil
 
-      # c/cpp
-      llvmPackages_19.clang-unwrapped
-      libgcc
-      lldb # debugger
-      ccls # lang server
+        # js
+        vscode-langservers-extracted # html/css server
+        typescript-language-server
+        nodePackages.prettier # formater
+        typescript
+        nodejs_23
+        pnpm
+        eslint
 
-      # java
-      jdt-language-server # lang server
-      google-java-format # formatter
-      zulu8
-      gradle
+        # c/cpp
+        llvmPackages_19.clang-unwrapped
+        libgcc
+        lldb # debugger
+        ccls # lang server
 
-      # C-sharp
-      dotnet-sdk
-      mono # open-source dotnet
-      csharp-ls # lang server
-      emacsPackages.omnisharp # lang server
+        # java
+        jdt-language-server # lang server
+        google-java-format # formatter
+        zulu8
+        gradle
 
-      # python
-      black # formatter
-      python312
-      pyright # type checker
-      python312Packages.pygls # lang server
-      python312Packages.pip # pip
-      isort
+        # C-sharp
+        dotnet-sdk
+        mono # open-source dotnet
+        csharp-ls # lang server
+        emacsPackages.omnisharp # lang server
 
-      # go
-      go
-      gopls # server
-      golines
+        # python
+        black # formatter
+        python312
+        pyright # type checker
+        python312Packages.pygls # lang server
+        python312Packages.pip # pip
+        isort
 
-      # php
-      php
-      phpactor
-      intelephense
-      vscode-extensions.xdebug.php-debug
+        # go
+        go
+        gopls # server
+        golines
 
-      # swift
-      swift
-      sourcekit-lsp # lang server
-      vscode-extensions.sswg.swift-lang
+        # php
+        php
+        phpactor
+        intelephense
+        vscode-extensions.xdebug.php-debug
 
-      # Databases
-      sqlite
-      postgresql
-      mariadb
-      # mysql84
+        # swift
+        swift
+        sourcekit-lsp # lang server
+        vscode-extensions.sswg.swift-lang
 
-      # other
-      yarn
-      pandoc # Conversion formats
-      emmet-ls
-      markdownlint-cli
-      tree-sitter
+        # Databases
+        sqlite
+        postgresql
+        mariadb
+        # mysql84
 
-      # bash
-      # bash
-      bash-language-server
+        # other
+        yarn
+        pandoc # Conversion formats
+        emmet-ls
+        markdownlint-cli
+        tree-sitter
 
-      # kotlin
-      kotlin-language-server
-      kotlin-native # compile to binary code
-      kotlin
+        # bash
+        # bash
+        bash-language-server
 
-      # julia
-      emacsPackages.lsp-julia
-      julia
-    ];
+        # kotlin
+        kotlin-language-server
+        kotlin-native # compile to binary code
+        kotlin
 
-    home.stateVersion = "24.11";
+        # julia
+        emacsPackages.lsp-julia
+        julia
+      ];
+    };
+
   };
 }
 

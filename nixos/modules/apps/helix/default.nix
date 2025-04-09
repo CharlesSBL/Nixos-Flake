@@ -1,6 +1,7 @@
 { ... }: {
   imports = [
     ./helix.nix
-    ./lang_configuration.nix
+
+    # Do not make language configuration (is broken)
   ];
 }

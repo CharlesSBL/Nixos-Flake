@@ -18,6 +18,7 @@
         # jetbrains.idea-community-bin # IntelliJ IDEA Community Edition
         # android-studio # Android development IDE
         ghostty # GPU-accelerated terminal emulator
+        lf
       ];
 
     in
