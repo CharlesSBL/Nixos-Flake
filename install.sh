@@ -58,7 +58,7 @@ get_username() {
 
 set_username() {
     sed -i -e "s/${CURRENT_USERNAME}/${username}/g" ./flake.nix
-    sed -i -e "s/${CURRENT_USERNAME}/${username}/g" ./modules/home/audacious.nix
+    sed -i -e "s/${CURRENT_USERNAME}/${username}/g" ./modules/home/applications/audacious.nix
 }
 
 get_host() {
@@ -92,7 +92,7 @@ aseprite() {
     if [[ ! $REPLY =~ ^[Yy]$ ]]; then
         return
     fi
-    sed -i '3s/  /  # /' modules/home/aseprite/aseprite.nix
+    sed -i '3s/  /  # /' modules/home/applications/aseprite/default.nix
 }
 
 install() {
