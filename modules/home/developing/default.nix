@@ -3,7 +3,7 @@
     ./git.nix
     ./helix
     ./lazygit.nix
-    ./rider.nix
+    # ./rider.nix
     ./scripts
     ./vscodium.nix
     ./zed

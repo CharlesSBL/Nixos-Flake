@@ -1,7 +1,7 @@
 { inputs, username, host, ... }: {
   imports = [
     ./applications
-    ./default.desktop.nix
+    # ./default.desktop.nix
     ./desktop
     ./developing
     ./packages.nix
