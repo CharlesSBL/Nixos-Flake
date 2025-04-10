@@ -1,5 +1,9 @@
 { pkgs, ... }:
 let
+  gitup = pkgs.writeShellScriptBin "gitup" (
+    builtins.readFile ./scripts/git_up.sh
+  );
+
   wall-change = pkgs.writeShellScriptBin "wall-change" (
     builtins.readFile ./scripts/wall-change.sh
   );
@@ -63,6 +67,8 @@ let
 in
 {
   home.packages = with pkgs; [
+    gitup
+
     wall-change
     wallpaper-picker
     random-wallpaper
