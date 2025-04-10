@@ -1,0 +1,25 @@
+theme = light:monokai-light,dark:monokai-dark
+
+# custom-shader = /home/sach/.config/ghostty/shaders/ai.glsl
+# custom-shader = /home/sach/.config/ghostty/shaders/ai2.glsl
+# custom-shader = /home/sach/.config/ghostty/shaders/ai3.glsl
+# custom-shader = /home/sach/.config/ghostty/shaders/ai4.glsl
+# custom-shader = /home/sach/.config/ghostty/shaders/bloom.glsl
+# custom-shader = /home/sach/.config/ghostty/shaders/pixels.glsl
+# custom-shader = /home/sach/.config/ghostty/shaders/galaxy.glsl
+# custom-shader = /home/sach/.config/ghostty/shaders/in-game-crt.glsl
+
+# custom-shader = /home/sach/.config/ghostty/special-shader/special.glsl
+# custom-shader = /home/sach/.config/ghostty/shaders/scanline.glsl
+# custom-shader = /home/sach/.config/ghostty/shaders/cineShader-Lava.glsl
+# custom-shader = /home/sach/.config/ghostty/shaders/bettercrt.glsl
+# custom-shader = /home/sach/.config/ghostty/shaders/animated-gradient-shader.glsl
+# custom-shader = /home/sach/.config/ghostty/shaders/crt.glsl
+# custom-shader = /home/sach/.config/ghostty/shaders/cubes.glsl
+
+command = /etc/profiles/per-user/sach/bin/zsh
+
+font-size = 18
+# background-opacity = 0.8
+# background-blur = 25
+font-style-bold = "Bold"
