@@ -43,7 +43,7 @@
 
       # ------------------------------------------------------------------------------ my
       nixb = "cd ~/nixflake && sudo nixos-rebuild switch --flake .#nixrach";
-      nixg = "cd ~/nixflake && sh ./commands/git-up.sh";
+      nixg = "cd ~/nixflake && gitup";
       nixs = "nix-shell -p";
       nixc = "nix-collect-garbage && sudo nix-store --optimise";
       nixclean = "sudo nix-collect-garbage -d && sudo nix-store --optimise";
