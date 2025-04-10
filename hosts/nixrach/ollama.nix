@@ -5,10 +5,8 @@
     enable = true;
     # acceleration = "cuda";
     # Optional: load models on startup
-    loadModels = [
-      "deepcoder:1.5b-preview-q8_0"
-    ];
+    # loadModels = [];
   };
 
-  services.open-webui.enable = true;
+  services.open-webui.enable = true; # localhost:8080
 }

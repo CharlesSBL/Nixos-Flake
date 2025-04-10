@@ -8,7 +8,7 @@
       # Rust toolchain installer
       rustup # rustup component add rust-analyzer
       gcc_multi
-      zed-editor
+      # zed-editor
 
       # nix
       nixfmt-rfc-style
