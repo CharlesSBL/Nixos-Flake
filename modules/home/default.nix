@@ -1,4 +1,4 @@
-{ ... }: {
+{ inputs, username, host, ... }: {
   imports = [
     ./applications
     ./default.desktop.nix

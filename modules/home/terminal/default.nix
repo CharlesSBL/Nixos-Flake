@@ -1,4 +1,4 @@
-{ ... }: {
+{ inputs, username, host, ... }: {
   imports = [
     ./bat.nix
     ./cava.nix

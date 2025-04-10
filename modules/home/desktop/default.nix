@@ -1,4 +1,4 @@
-{ ... }: {
+{ inputs, username, host, ... }: {
   imports = [
     ./gtk.nix
     ./nemo.nix
