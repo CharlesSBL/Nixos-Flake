@@ -8,7 +8,7 @@ in
     # BACKGROUND
     background {
       monitor =
-      path = ${../../../wallpapers/otherWallpaper/gruvbox/forest_road.jpg}
+      path = ${../../../../wallpapers/otherWallpaper/gruvbox/forest_road.jpg}
       blur_passes = 2
       contrast = 0.8916
       brightness = 0.8172
@@ -28,7 +28,7 @@ in
 
     # Time
     label {
-      monitor = 
+      monitor =
       text = cmd[update:1000] echo "$(date +"%k:%M")"
       color = rgba(235, 219, 178, .9)
       font_size = 115
