@@ -8,6 +8,7 @@
     ./localization.nix
     ./ollama.nix
     ./gnome.nix
+    ./keyd.nix
   ];
 
   environment.systemPackages = with pkgs; [

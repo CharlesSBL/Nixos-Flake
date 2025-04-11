@@ -2,12 +2,14 @@
 {
   services = {
     xserver = {
-      enable = true;
+      enable = false;
       xkb.layout = "us";
     };
 
     displayManager.autoLogin = {
-      enable = true;
+      # TODO: [ CharlesSBL ]
+      # -> change if is not right
+      enable = false;
       user = "${username}";
     };
     libinput = {

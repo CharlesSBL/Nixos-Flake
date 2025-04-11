@@ -21,7 +21,9 @@
       ];
 
       input = {
-        kb_layout = "us,fr";
+        # TODO: [ CharlesSBL ]
+        # -> changes from swap lang to change ctrl to alt
+        kb_layout = "us,pl,ru"; # Adjust to your keyboard layout
         kb_options = "grp:alt_caps_toggle";
         numlock_by_default = true;
         repeat_delay = 300;
