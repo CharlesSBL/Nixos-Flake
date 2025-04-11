@@ -8,7 +8,7 @@
     ./localization.nix
     ./ollama.nix
     ./gnome.nix
-    ./keyd.nix
+    # ./keyd.nix # to switch keys (remap)
   ];
 
   environment.systemPackages = with pkgs; [

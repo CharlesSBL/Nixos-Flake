@@ -23,8 +23,10 @@
       input = {
         # TODO: [ CharlesSBL ]
         # -> changes from swap lang to change ctrl to alt
-        kb_layout = "us,pl,ru"; # Adjust to your keyboard layout
-        kb_options = "grp:alt_caps_toggle";
+        # kb_layout = "us,pl,ru";
+        kb_layout = "us";
+        # kb_options = "grp:alt_caps_toggle";
+        kb_options = "ctrl:swap_lalt_lctl";
         numlock_by_default = true;
         repeat_delay = 300;
         follow_mouse = 0;
