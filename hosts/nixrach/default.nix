@@ -61,9 +61,9 @@
   };
 
   # console.font = "ter-i32b";
-  # console.packages = with pkgs; [
-  #   terminus_font
-  # ];
+  console.packages = with pkgs; [
+    terminus_font
+  ];
 
   # sets the font size much earlier in the boot process:
   console.earlySetup = true;

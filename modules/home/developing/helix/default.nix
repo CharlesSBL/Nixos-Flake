@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   imports = [
     ./helix.nix
     ./lang.nix
@@ -40,10 +41,9 @@
 
       # Communication
       # slack              # Team collaboration platform
-      discord # Voice and text chat
+      # discord # Voice and text chat
       telegram-desktop # Messaging app
       thunderbird # Email client
-
 
       # System Tools
       cpu-x # System information tool
@@ -72,7 +72,6 @@
       # flatpak            # Application deployment framework
       transmission_4-gtk # Torrent client
       nautilus # File manager
-
 
       # jetbrains.idea-community-bin # IntelliJ IDEA Community Edition
       # android-studio # Android development IDE

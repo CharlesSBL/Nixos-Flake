@@ -10,6 +10,6 @@
   services.gnome = {
     core-utilities.enable = false;
     localsearch.enable = false;
-    tinysparql.enable = false;
+    # tinysparql.enable = false;
   };
 }
