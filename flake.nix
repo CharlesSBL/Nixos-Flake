@@ -3,6 +3,8 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-2411.url = "github:NixOS/nixpkgs/nixos-24.11"; # For PipeWire
+    
     nur.url = "github:nix-community/NUR";
 
     hypr-contrib.url = "github:hyprwm/contrib";
@@ -43,7 +45,7 @@
   };
 
   outputs =
-    { nixpkgs, self, ... }@inputs:
+    { nixpkgs,nixpkgs-2411, self, ... }@inputs:
     let
       username = "sach";
       system = "x86_64-linux";
@@ -52,6 +54,7 @@
         config.allowUnfree = true;
       };
       lib = nixpkgs.lib;
+      pkgs2411 = nixpkgs-2411.legacyPackages.${system};
     in
     {
       nixosConfigurations = {

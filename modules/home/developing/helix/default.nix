@@ -61,7 +61,7 @@
 
       # resources          # System resource monitor
       easyeffects # Audio effects tool
-      parsec-bin # Remote desktop software
+      # parsec-bin # Remote desktop software
       # bottles            # Windows compatibility layer
       # protonplus   # works only with steam
       # gfn-electron # nvidia now
