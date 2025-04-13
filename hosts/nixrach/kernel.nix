@@ -2,8 +2,8 @@
 
 {
   # Use Linux 5.15 LTS kernel for stability, while Zen kernel focuses on desktop responsiveness and performance
-  # boot.kernelPackages = pkgs.linuxKernel.packages.linux_5_15; # Standard LTS kernel
-  boot.kernelPackages = pkgs.linuxPackages_zen; # Comment out to choose one
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_5_15; # Standard LTS kernel
+  # boot.kernelPackages = pkgs.linuxPackages_zen; # Comment out to choose one
 
   # Configure kernel parameters for Intel iGPU power optimization
   boot.kernelParams = [
