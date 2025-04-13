@@ -8,7 +8,6 @@
     ./localization.nix
     ./ollama.nix
     ./gnome.nix
-    ./graphics.nix
     # ./keyd.nix # to switch keys (remap)
   ];
 
