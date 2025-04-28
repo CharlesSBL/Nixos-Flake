@@ -1,7 +1,7 @@
 <h1 align="center">
    <img src="./.github/assets/logo/nixos-logo.png  " width="100px" />
    <br>
-      Frost-Phoenix's Flakes modified <Nixrach>
+      Flakes  Nixrach
    <br>
       <img src="./.github/assets/pallet/pallet-0.png" width="600px" /> <br>
 
@@ -42,7 +42,6 @@
    Screenshots last updated <b>2025-01-05</b>
 </p>
 
-Here is my previous Catppuccin rice. You can find it [here](https://github.com/Frost-Phoenix/nixos-config/tree/catppuccin)
 <details>
 <summary>
 Catppuccin (EXPAND)
