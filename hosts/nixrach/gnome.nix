@@ -2,7 +2,8 @@
   services.xserver = {
     # enable = true;
     displayManager.gdm.enable = false;
-    desktopManager.gnome.enable = true;
+    desktopManager.gnome.enable = false;
+    desktopManager.xfce.enable = false;
   };
 
   # services.xserver.xkb.options = "ctrl:swap_lalt_lctrl";

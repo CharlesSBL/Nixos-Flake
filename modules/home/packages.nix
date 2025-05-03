@@ -102,6 +102,10 @@ in
     python3
     python312Packages.ipython
 
+    jetbrains.idea-community
+    docker-client
+    docker-compose
+
     inputs.alejandra.defaultPackage.${system}
   ]);
 }

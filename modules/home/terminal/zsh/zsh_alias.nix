@@ -59,7 +59,7 @@
       piv = "python -m venv .venv";
       psv = "source .venv/bin/activate";
 
-      ollama = "ollama ls && ollama ps";
+      # ollama = "ollama ls && ollama ps";
     };
   };
 }

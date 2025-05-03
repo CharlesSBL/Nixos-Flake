@@ -8,5 +8,5 @@
     # loadModels = [];
   };
 
-  # services.open-webui.enable = true; # localhost:8080
+  services.open-webui.enable = true; # localhost:8080
 }
